@@ -23,10 +23,6 @@ const styles = StyleSheet.create({
         marginTop: 60,
     },
 
-    title: {
-        color: '#f2a950', 
-    },
-
     input: {
         width: '80%', 
         marginBottom: 33,
@@ -34,7 +30,57 @@ const styles = StyleSheet.create({
         color: '#F7F6EE',
         borderBottomColor: '#F7F6EE',
         borderBottomWidth: 1,
+        marginLeft: 10,
     },
+
+    birthTitle: {
+        fontSize: 16,
+        color: '#F2C894',
+        marginRight: 66,
+    },
+
+    birthDate: {
+        alignItems: "center",
+        marginBottom: 33,
+        justifyContent: "center",
+        flexDirection: "row",
+        marginLeft: 86,
+        borderBottomColor: '#F7F6EE',
+        borderBottomWidth: 1,
+    },
+
+    birthDate_component: {
+        color: '#F7F6EE',
+        width: 100,
+        height: 50,
+    },
+
+    addressTitle: {
+        fontSize: 16,
+        color: '#F2C894',
+        marginRight: 140,
+        marginBottom: 20,
+    },
+
+    birthDate_date: {
+        color: '#F7F6EE',
+        fontSize: 16,
+        width: 100,
+    },
+
+    row: {
+        flexDirection: "row",
+      
+    },
+
+    halfLg: {
+        width: '57%',
+    },
+
+    halfSm: {
+        width: '20%',
+    },
+
 });
 
 
