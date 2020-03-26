@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-    
+
 const styles = StyleSheet.create({
     container: { 
       backgroundColor: '#232F40',
@@ -9,16 +9,26 @@ const styles = StyleSheet.create({
       width: '100%',
     },
 
-    header: {
-        width: '100%',
-        height: 100,
-        backgroundColor: '#101D35',
-        marginBottom: 37,
+    button: {
+        marginTop: 52,
+        width: '80%',
+        height: 60,
+        backgroundColor: '#f2a950',
+        borderRadius: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 
+    buttonText: {
+        color: '#2D4F6C',
+        fontWeight: 'bold',
+        fontSize: 20,
+    },
 
     text: {
+        marginTop: 45,
         color: '#f2a950', 
+        fontSize: 12,
     },
 
     input: {
