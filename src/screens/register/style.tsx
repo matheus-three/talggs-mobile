@@ -4,7 +4,8 @@ const styles = StyleSheet.create({
     container: {
       backgroundColor: '#232F40',
       alignItems: 'center',
-      
+      height: '100%',
+      width: '100%',
     },
 
     header: {
