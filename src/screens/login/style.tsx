@@ -9,21 +9,6 @@ export const styles = StyleSheet.create({
       width: '100%',
     },
 
-    button: {
-        width: '80%',
-        height: 60,
-        borderRadius: 50,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#f2a950',
-    },
-
-    buttonText: {
-        color: '#2D4F6C',
-        fontWeight: 'bold',
-        fontSize: 20,
-    },
-
     text: {
         marginTop: 30,
         color: '#f2a950', 
