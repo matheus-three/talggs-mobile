@@ -1,15 +1,11 @@
 import {StyleSheet} from 'react-native';
     
 const styles = StyleSheet.create({
-    container2: {
-        flex: 1
-      },
-
     container: {
       backgroundColor: '#232F40',
       width: '100%',
       flex: 0, 
-      height: 'auto',
+      height: '100%',
     },
 
     header: {

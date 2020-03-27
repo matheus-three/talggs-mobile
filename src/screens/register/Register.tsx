@@ -1,5 +1,5 @@
 import React,  { useState } from 'react';
-import { View, TextInput, Text, Image, Platform, ScrollView, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
+import { View, TextInput, Text, Platform, ScrollView, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import { Dropdown } from 'react-native-material-dropdown';
 import DatePicker from 'react-native-datepicker';
 import SvgUri from 'expo-svg-uri';
@@ -24,7 +24,10 @@ const Register = () => {
     }
 
     return (
-        <View style={Style.container}>   
+        <KeyboardAvoidingView
+            behavior={Platform.OS == "ios" ? "padding" : "height"}
+            style={Style.container}
+        > 
             <View style={[Style.header, Style.row]}>
                 <SvgUri
                     fill="#F7F6EE"
@@ -34,6 +37,7 @@ const Register = () => {
                 /> 
                 <Text style={Style.header_title}>CADASTRO</Text>
             </View>
+
             <ScrollView>
                 <View style={{alignItems: 'center'}}>
                     <TextInput placeholder="Nome Completo" style={Style.input}/>
@@ -74,37 +78,38 @@ const Register = () => {
                             onDateChange={changeDate}
                         />
                         <Text style={Style.birthDate_date}>{date}</Text>
-                    </View>
-                    
+                    </View>         
 
-                        <Text style={Style.addressTitle}>Endereço:</Text>
-                        <View style={Style.row}>
-                            <TextInput placeholder="CEP" style={[Style.input, Style.halfLg]}/>
-                            <TextInput placeholder="Nº" style={[Style.input, Style.halfSm]}/>
-                        </View>
-                        <TextInput placeholder="Rua" style={Style.input}/>
-                        <TextInput placeholder="Bairro" style={Style.input}/>
-                        <TextInput placeholder="Rua" style={Style.input}/>
-                        <View style={Style.row}>
-                            <TextInput placeholder="Cidade" style={[Style.input, Style.halfLg]}/>
-                            <Dropdown
-                                containerStyle={{ width: '20%', height: 80, marginLeft: 10, marginTop: -15,  top: 21}}
-                                style={{color: "#F7F6EE"}}
-                                baseColor="#F7F6EE"
-                                itemTextStyle="#FFF"
-                                dropdownPosition={4}
-                                fontSize={14}
-                                label='UF'
-                                data={uf}
-                            />
-                        </View>
+                    <Text style={Style.addressTitle}>Endereço:</Text>
+
+                    <View style={Style.row}>
+                        <TextInput placeholder="CEP" style={[Style.input, Style.halfLg]}/>
+                        <TextInput placeholder="Nº" style={[Style.input, Style.halfSm]}/>
+                    </View>
+                    <TextInput placeholder="Rua" style={Style.input}/>
+                    <TextInput placeholder="Bairro" style={Style.input}/>
+            
+                    <View style={Style.row}>
+                        <TextInput placeholder="Cidade" style={[Style.input, Style.halfLg]}/>
+                        <Dropdown
+                            containerStyle={{ width: '20%', height: 80, marginLeft: 10, marginTop: -15,  top: 21}}
+                            style={{color: "#F7F6EE"}}
+                            baseColor="#F7F6EE"
+                            itemTextStyle="#FFF"
+                            dropdownPosition={4}
+                            fontSize={14}
+                            label='UF'
+                            data={uf}
+                        />
+                    </View>
 
                     <TouchableOpacity style={Style.button}>
                         <Text style={Style.button_text}>CADASTRAR-SE</Text>
                     </TouchableOpacity>
+ 
                 </View>  
             </ScrollView>   
-        </View>
+        </KeyboardAvoidingView>
     )
 }
 
