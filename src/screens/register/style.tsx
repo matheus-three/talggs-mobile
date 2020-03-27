@@ -1,34 +1,43 @@
 import {StyleSheet} from 'react-native';
     
 const styles = StyleSheet.create({
+    container2: {
+        flex: 1
+      },
+
     container: {
       backgroundColor: '#232F40',
-      alignItems: 'center',
-      height: '100%',
       width: '100%',
+      flex: 0, 
+      height: 'auto',
     },
 
     header: {
         width: '100%',
         height: 100,
         backgroundColor: '#101D35',
-        marginBottom: 37,
+        alignItems: "center",
     },
 
     header_title: {
         color: '#F7F6EE',
         alignItems: 'flex-end',
-        marginTop: 60,
         marginLeft: 30,
         fontSize: 20,
+        marginTop: 10,
+    },
+    
+    header_btn: {
+        marginTop: 10,
+        marginLeft: 20,
     },
 
     input: {
         width: '80%', 
-        marginBottom: 33,
+        marginTop: 33,
         color: '#F7F6EE',
         borderBottomColor: '#F7F6EE',
-        borderBottomWidth: 1,
+        borderBottomWidth: 0.5,
         marginLeft: 10,
     },
 
@@ -42,10 +51,9 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginBottom: 33,
         justifyContent: "center",
-        flexDirection: "row",
         marginLeft: 86,
         borderBottomColor: '#F7F6EE',
-        borderBottomWidth: 1,
+        borderBottomWidth: 0.5,
     },
 
     birthDate_component: {
@@ -58,7 +66,6 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: '#F2C894',
         marginRight: 140,
-        marginBottom: 20,
     },
 
     birthDate_date: {
@@ -67,9 +74,29 @@ const styles = StyleSheet.create({
         width: 100,
     },
 
+    sexo: {
+        width: 200,
+    },
+
+    button: {
+        width: '70%',
+        height: 60,
+        borderRadius: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#f2a950',
+        marginBottom: 40,
+        marginTop: 50,
+    },
+
+    button_text: {
+        color: '#101D25',
+        fontWeight: 'bold',
+        fontSize: 20,
+    },
+
     row: {
         flexDirection: "row",
-      
     },
 
     halfLg: {
@@ -78,26 +105,6 @@ const styles = StyleSheet.create({
 
     halfSm: {
         width: '20%',
-    },
-
-    sexo: {
-        width: 200,
-    },
-
-    button: {
-        width: '80%',
-        height: 60,
-        borderRadius: 50,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#f2a950',
-        marginBottom: 20,
-    },
-        
-    button_text: {
-        color: '#2D4F6C',
-        fontWeight: 'bold',
-        fontSize: 20,
     },
 
 });
