@@ -1,6 +1,6 @@
-
-import React,  { useState , Component} from 'react';
-import { View, TextInput, Text, Button, Platform, ScrollView } from 'react-native';
+import React,  { useState } from 'react';
+import { View, TextInput, Text, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { Dropdown } from 'react-native-material-dropdown';
 import DatePicker from 'react-native-datepicker';
 
 
@@ -9,6 +9,22 @@ import Style from './style';
 const Register = () => {
 
     const [date, setDate] = useState('');
+
+
+    let sexo = [{
+        value: 'Feminino',
+      }, {
+        value: 'Masculino',
+      }
+    ];
+
+    let ue = [
+        {value: 'AC'}, {value: 'AL'}, {value: 'AP'}, {value: 'AM'}, {value: 'BA'}, {value: 'CE'}, {value: 'DF'}, {value: 'ES'},
+        {value: 'GO'}, {value: 'MA'}, {value: 'MT'}, {value: 'MS'}, {value: 'MG'}, {value: 'PA'}, {value: 'PB'}, {value: 'PR'},
+        {value: 'PE'}, {value: 'PI'}, {value: 'RJ'}, {value: 'RN'}, {value: 'RS'}, {value: 'RO'}, {value: 'RR'}, {value:'SC'}, 
+        {value: 'SP'}, {value: 'SE'}, {value: 'TO'}
+    ]
+
 
     const changeDate = value => {
         setDate(value);
@@ -25,12 +41,20 @@ const Register = () => {
                 <TextInput placeholder="Senha" secureTextEntry style={Style.input}/>
                 <TextInput placeholder="Confirme sua senha" secureTextEntry style={Style.input}/> 
                 <TextInput placeholder="CPF" style={Style.input}/>
-                <TextInput placeholder="Sexo" style={Style.input}/>
+
+                <Dropdown
+                    containerStyle={{ width: '80%', height: 80, marginLeft: 10, marginTop: -15}}
+                    style={{color: "#F7F6EE", paddingLeft: 20}}
+                    baseColor="#F7F6EE"
+                    itemTextStyle="#FFF"
+                    fontSize={14}
+                    label='Sexo'
+                    data={sexo}
+                />
 
                 <Text style={Style.birthTitle}>Data de Nascimento:</Text>
                 <View style={Style.birthDate}>
                     <DatePicker
-                        placeholder="Data de Nascimento"
                         format="DD/MM/YYYY"
                         style={Style.birthDate_component}
                         date={date}
@@ -53,16 +77,31 @@ const Register = () => {
 
                 <Text style={Style.addressTitle}>Endereço:</Text>
                 <View style={Style.row}>
-                    <TextInput placeholder="CPF" style={[Style.input, Style.halfLg]}/>
+                    <TextInput placeholder="CEP" style={[Style.input, Style.halfLg]}/>
                     <TextInput placeholder="Nº" style={[Style.input, Style.halfSm]}/>
                 </View>
 
-                <TextInput placeholder="Rua.Bairro" style={Style.input}/>
+                <TextInput placeholder="Rua" style={Style.input}/>
+                <TextInput placeholder="Bairro" style={Style.input}/>
+               
 
                 <View style={Style.row}>
                     <TextInput placeholder="Cidade" style={[Style.input, Style.halfLg]}/>
-                    <TextInput placeholder="UE" style={[Style.input, Style.halfSm]}/>
+                    <Dropdown
+                        containerStyle={{ width: '20%', height: 80, marginLeft: 10, marginTop: -15, paddingBottom: -70}}
+                        style={{color: "#F7F6EE", paddingLeft: 20}}
+                        dropdownPosition= {20}
+                        baseColor="#F7F6EE"
+                        itemTextStyle="#FFF"
+                        fontSize={14}
+                        label='UE'
+                        data={ue}
+                    />
                 </View>
+
+                <TouchableOpacity style={Style.button}>
+                    <Text style={Style.button_text}>CADASTRAR-SE</Text>
+                </TouchableOpacity>
             </View>  
         </ScrollView>         
     )

@@ -17,16 +17,15 @@ const styles = StyleSheet.create({
 
     header_title: {
         color: '#F7F6EE',
-        textAlign: 'center',
-        justifyContent: 'flex-end',
         alignItems: 'flex-end',
         marginTop: 60,
+        marginLeft: 30,
+        fontSize: 20,
     },
 
     input: {
         width: '80%', 
         marginBottom: 33,
-        paddingLeft: 35,
         color: '#F7F6EE',
         borderBottomColor: '#F7F6EE',
         borderBottomWidth: 1,
@@ -79,6 +78,26 @@ const styles = StyleSheet.create({
 
     halfSm: {
         width: '20%',
+    },
+
+    sexo: {
+        width: 200,
+    },
+
+    button: {
+        width: '80%',
+        height: 60,
+        borderRadius: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#f2a950',
+        marginBottom: 20,
+    },
+        
+    button_text: {
+        color: '#2D4F6C',
+        fontWeight: 'bold',
+        fontSize: 20,
     },
 
 });
