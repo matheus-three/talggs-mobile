@@ -10,7 +10,6 @@ const Register = () => {
 
     const [date, setDate] = useState('');
 
-
     let sexo = [{
         value: 'Feminino',
       }, {
@@ -18,11 +17,8 @@ const Register = () => {
       }
     ];
 
-    let ue = [
-        {value: 'AC'}, {value: 'AL'}, {value: 'AP'}, {value: 'AM'}, {value: 'BA'}, {value: 'CE'}, {value: 'DF'}, {value: 'ES'},
-        {value: 'GO'}, {value: 'MA'}, {value: 'MT'}, {value: 'MS'}, {value: 'MG'}, {value: 'PA'}, {value: 'PB'}, {value: 'PR'},
-        {value: 'PE'}, {value: 'PI'}, {value: 'RJ'}, {value: 'RN'}, {value: 'RS'}, {value: 'RO'}, {value: 'RR'}, {value:'SC'}, 
-        {value: 'SP'}, {value: 'SE'}, {value: 'TO'}
+    let uf = [
+        {value: 'AC'}, {value: 'AL'}, {value: 'AP'}, {value: 'AM'}, {value: 'BA'}, {value: 'CE'}, {value: 'DF'}, {value: 'ES'}, {value: 'GO'}, {value: 'MA'}, {value: 'MT'}, {value: 'MS'}, {value: 'MG'}, {value: 'PA'}, {value: 'PB'}, {value: 'PR'}, {value: 'PE'}, {value: 'PI'}, {value: 'RJ'}, {value: 'RN'}, {value: 'RS'}, {value: 'RO'}, {value: 'RR'}, {value:'SC'},{value: 'SP'}, {value: 'SE'}, {value: 'TO'}
     ]
 
 
@@ -35,6 +31,7 @@ const Register = () => {
             <View style={Style.container}>
                 <View style={Style.header}>
                     <Text style={Style.header_title}>Cadastro</Text>
+
                 </View>
                 <TextInput placeholder="Nome Completo" style={Style.input}/>
                 <TextInput placeholder="E-mail" style={Style.input}/>
@@ -48,6 +45,7 @@ const Register = () => {
                     baseColor="#F7F6EE"
                     itemTextStyle="#FFF"
                     fontSize={14}
+                    dropdownPosition={-3}
                     label='Sexo'
                     data={sexo}
                 />
@@ -88,14 +86,14 @@ const Register = () => {
                 <View style={Style.row}>
                     <TextInput placeholder="Cidade" style={[Style.input, Style.halfLg]}/>
                     <Dropdown
-                        containerStyle={{ width: '20%', height: 80, marginLeft: 10, marginTop: -15, paddingBottom: -70}}
-                        style={{color: "#F7F6EE", paddingLeft: 20}}
-                        dropdownPosition= {20}
+                        containerStyle={{ width: '20%', height: 80, marginLeft: 10, marginTop: -15, top: -12}}
+                        style={{color: "#F7F6EE"}}
                         baseColor="#F7F6EE"
                         itemTextStyle="#FFF"
+                        dropdownPosition={4}
                         fontSize={14}
-                        label='UE'
-                        data={ue}
+                        label='UF'
+                        data={uf}
                     />
                 </View>
 
