@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { View, TextInput, Text, TouchableOpacity } from 'react-native';
+import { KeyboardAvoidingView, TextInput, Text, Platform, } from 'react-native';
 
 import SvgUri from "expo-svg-uri";
 
@@ -11,7 +11,10 @@ import Style from './style';
 const Login = () => {
 
     return (
-        <View style={Style.container}>
+        <KeyboardAvoidingView
+            behavior={Platform.Os == "ios" ? "padding" : "height"}
+            style={Style.container}
+        > 
             <SvgUri
                 width="260"
                 height="260"
@@ -36,7 +39,7 @@ const Login = () => {
             </GradientButton>
 
             <Text style={Style.text}>Ainda não possui uma conta? Cadastre-se!</Text>
-        </View>
+        </KeyboardAvoidingView>
     )
 }
 
