@@ -16,7 +16,7 @@ const Edit = () => {
     const [cep, setCep] = useState("18.321.297")
     const [number, setNumber] = useState("99")
     const [street, setStreet] = useState("Manuel Algusto Rangel")
-    const [neighborhood, setNeighborhood] = useState("vila da Folha")
+    const [neighborhood, setNeighborhood] = useState("Vila da Folha")
     const [city, setCity] = useState("Tokyo")
 
     const [date, setDate] = useState('');
@@ -31,8 +31,8 @@ const Edit = () => {
 
     return(
         <KeyboardAvoidingView
-        behavior={Platform.OS == "ios" ? "padding" : "height"}
-        style={Style.container}
+            behavior={Platform.OS == "ios" ? "padding" : "height"}
+            style={Style.container}
         > 
 
         <View style={Style.statusBar}></View>
@@ -44,20 +44,20 @@ const Edit = () => {
                 <TextInput placeholder="Nome Completo" value={name} style={Style.input}/>
 
                 <Text style={Style.labelTitle}>CPF:</Text>
-                <TextInput value={cpf} editable={false} style={Style.input}/>
+                <TextInput value={cpf} editable={false} style={[Style.input, Style.block]}/>
 
                 <Text style={Style.labelTitle}>Sexo:</Text>
-                <TextInput value={gender} editable={false} style={Style.input}/>
+                <TextInput value={gender} editable={false} style={[Style.input, Style.block]}/>
 
                 <Text style={Style.labelTitle}>E-mail:</Text>
                 <TextInput placeholder="E-mail" value={email} style={Style.input}/>
 
                 <Text style={Style.labelTitle}>Data de Nascimento:</Text>
-                <TextInput value={birthDate} editable={false} style={Style.input}/>       
+                <TextInput value={birthDate} editable={false} style={[Style.input, Style.block]}/>       
 
                 <Text style={Style.labelTitle}>Endereço:</Text>
 
-                <View style={Style.dubleTitle}>
+                <View style={Style.doubleTitle}>
                     <Text style={Style.labelTitleAddress}>CEP</Text>
                     <Text style={[Style.labelTitleAddress, Style.number]}>Nº</Text>
                 </View> 

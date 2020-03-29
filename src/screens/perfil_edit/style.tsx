@@ -14,26 +14,6 @@ const styles = StyleSheet.create({
       height: '100%',
     },
 
-    header: {
-        width: '100%',
-        height: 100,
-        backgroundColor: '#101D35',
-        alignItems: "center",
-    },
-
-    header_title: {
-        color: '#F7F6EE',
-        alignItems: 'flex-end',
-        marginLeft: 30,
-        fontSize: 20,
-        marginTop: 10,
-    },
-    
-    header_btn: {
-        marginTop: 10,
-        marginLeft: 20,
-    },
-
     labelTitle: {
         fontSize: 14,
         color: '#F2C894',
@@ -50,6 +30,10 @@ const styles = StyleSheet.create({
         color: '#F7F6EE',
         marginLeft: 41,
         marginBottom: 5,
+    },
+
+    block: {
+        color: '#696A6C',
     },
 
     input: {
@@ -88,7 +72,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
     },
 
-    dubleTitle: {
+    doubleTitle: {
         flexDirection: "row",
         alignSelf: "flex-start",
     },
@@ -101,6 +85,11 @@ const styles = StyleSheet.create({
         marginBottom: -12,
     },
 
+    cityHeight: {
+        marginTop: 7,
+        height: 35,
+    },
+
     halfLg: {
         width: '57%',
     },
@@ -108,12 +97,6 @@ const styles = StyleSheet.create({
     halfSm: {
         width: '20%',
     },
-
-    cityHeight: {
-        marginTop: 7,
-        height: 35,
-    },
-
 });
 
 
