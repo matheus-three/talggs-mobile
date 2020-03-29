@@ -34,8 +34,7 @@ const Edit = () => {
             behavior={Platform.OS == "ios" ? "padding" : "height"}
             style={Style.container}
         > 
-
-        <View style={Style.statusBar}></View>
+        
         <Header title="PERFIL" name={name} seta="true"/>
 
         <ScrollView>
