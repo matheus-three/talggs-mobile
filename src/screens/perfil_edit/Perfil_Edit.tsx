@@ -35,7 +35,7 @@ const Edit = () => {
             style={Style.container}
         > 
         
-        <Header title="PERFIL" name={name} seta="true"/>
+        <Header title="EDITAR PERFIL" name={name} arrowBtn="true"/>
 
         <ScrollView>
             <View style={{alignItems: 'center'}}>
