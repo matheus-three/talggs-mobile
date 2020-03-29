@@ -1,6 +1,12 @@
 import {StyleSheet} from 'react-native';
-    
+import Constants from 'expo-constants';
+
 const styles = StyleSheet.create({
+    statusBar: {
+        backgroundColor: "#232F40",
+        height: Constants.statusBarHeight,
+    },
+
     container: {
       backgroundColor: '#232F40',
       width: '100%',
@@ -35,6 +41,15 @@ const styles = StyleSheet.create({
         marginLeft: 41,
         marginTop: 10,
         marginBottom: 10,
+    },
+
+    labelTitleAddress: {
+        flexDirection: "column",
+        alignSelf: 'flex-start',
+        fontSize: 12,
+        color: '#F7F6EE',
+        marginLeft: 41,
+        marginBottom: 5,
     },
 
     input: {
@@ -73,12 +88,30 @@ const styles = StyleSheet.create({
         flexDirection: "row",
     },
 
+    dubleTitle: {
+        flexDirection: "row",
+        alignSelf: "flex-start",
+    },
+
+    number: {
+        marginLeft: "53%",
+    },
+
+    city: {
+        marginBottom: -12,
+    },
+
     halfLg: {
         width: '57%',
     },
 
     halfSm: {
         width: '20%',
+    },
+
+    cityHeight: {
+        marginTop: 7,
+        height: 35,
     },
 
 });
