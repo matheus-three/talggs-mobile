@@ -15,6 +15,28 @@ const PurchaseDetails = () => {
     const [parcelas, setParcelas] = useState('0')
     const [codigo, setCodigo] = useState('445566778899101011111212')
 
+    const produtos = [
+        {
+            descricao: 'Caneta Bic',
+            qtde: 3,
+            vlUnit: 2.0,
+            vlTotal: 6.0,
+        },
+        {
+            descricao: 'Caderno do Naruto',
+            qtde: 1,
+            vlUnit: 20,
+            vlTotal: 20,
+        },
+        {
+            descricao: 'Mochila da Barbie',
+            qtde: 1,
+            vlUnit: 100,
+            vlTotal: 100,
+        }
+    ]
+
+
     const copyToClipboard = () => {
         Clipboard.setString(codigo)
         Alert.alert("Copiado")
@@ -77,11 +99,25 @@ const PurchaseDetails = () => {
             <View >
                 <Text style={Styles.title}>Produtos </Text>
 
-                <View style={Styles.containerInfos}>
+                <View style={Styles.containerItems}>
                     <Text style={ Styles.productTitle}>Descrição</Text>
                     <Text style={Styles.productTitle}>Qtde.</Text>
                     <Text style={Styles.productTitle}>VL uni.</Text>
                     <Text style={Styles.productTitle}>VL. total</Text>                             
+                </View>
+                <View style={Styles.containerItems}>
+                    <>
+                        {produtos.map(produto => (
+                            <>
+                                <Text style={Styles.productItemsDesc}>{produto.descricao}</Text>
+                                <Text style={Styles.productItems}>{produto.qtde}</Text>
+                                <Text style={Styles.productItems}>{produto.vlUnit}</Text>
+                                <Text style={Styles.productItems}>{produto.vlTotal}</Text>
+                            </>
+                        ))} 
+                    </>
+                    
+
                 </View>
             </View>
 

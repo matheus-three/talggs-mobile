@@ -12,11 +12,13 @@ export const styles = StyleSheet.create({
     containerInfos: {
         flexDirection: 'row',
         justifyContent: 'space-between',
+        alignItems: 'center',
         marginBottom: 29
     },
     containerTitle: {
         flexDirection: 'row',
         justifyContent: 'space-between',
+        alignItems: 'center',
     },
     containerLine: {
         flexDirection: 'row',
@@ -67,7 +69,29 @@ export const styles = StyleSheet.create({
         fontSize: 16,
         color: '#BEBCBC',
         fontWeight: 'bold',
-    }
+    },
+    productItems: {
+        fontSize: 16,
+        color: '#232F40',
+        fontWeight: 'bold',
+        width: '15%',
+        marginBottom: 8,
+
+    },
+    productItemsDesc: {
+        width: '30%',
+        marginBottom: 8,
+        fontSize: 16,
+        color: '#232F40',
+        fontWeight: 'bold',
+        
+    },
+    containerItems: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginTop: 10,
+        flexWrap: 'wrap'
+    },
 });
 
 
