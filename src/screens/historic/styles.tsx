@@ -5,20 +5,15 @@ export const styles = StyleSheet.create({
     container: {
         marginTop: Constants.statusBarHeight,
         backgroundColor: '#F7F6EE',
-        height: '100%',
-        
+        height: '100%',    
+        padding: 25,
     },
     containerLine: {
-        
+        width: '100%',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between'
-    },
-    boleto: {
-        paddingHorizontal: 21,
-        marginHorizontal: 21,
-        marginBottom: 20,
-        borderLeftWidth: 1,
+
     },
     title: {
         fontSize: 16,
@@ -31,8 +26,27 @@ export const styles = StyleSheet.create({
         color: '#A4A4A7',
     },
     value: {
+        marginLeft: '10%',
         fontSize: 16,
         color: '#101D25',
+    },
+    valueContainerPendente: {
+        marginLeft: 12,
+        borderLeftWidth: 1.5,
+        paddingBottom: 20,
+        borderLeftColor: '#2D9AA6'
+    },
+    valueContainerPago: {
+        marginLeft: 12,
+        borderLeftWidth: 1.5,
+        paddingBottom: 20,
+        borderLeftColor: '#34AF2B'
+    },
+    valueContainerVencido: {
+        marginLeft: 12,
+        borderLeftWidth: 1.5,
+        paddingBottom: 20,
+        borderLeftColor: '#D45454'
     }
 })
 
