@@ -5,8 +5,8 @@ export const styles = StyleSheet.create({
     container: {
         marginTop: Constants.statusBarHeight,
         backgroundColor: '#F7F6EE',
-        height: '100%',    
-        padding: 25,
+        height: '100%',   
+        paddingHorizontal: '5%' 
     },
     containerLine: {
         width: '100%',

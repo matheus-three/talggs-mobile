@@ -1,12 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { View } from 'react-native';
 
-import History from './src/screens/historic'
+import StatusNavigation from './src/components/statusNavigation'
 
 export default function App() {
   return (
     <View>
-      <History />
+      <StatusNavigation />
     </View>
   );
 }

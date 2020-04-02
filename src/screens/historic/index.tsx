@@ -1,12 +1,11 @@
-import React from 'react'
-import { View, Text, ScrollView } from 'react-native'
+import React, {useState} from 'react'
+import { View, Text, ScrollView, TouchableOpacity } from 'react-native'
 
 import SvgUri from "expo-svg-uri";
 
 import Styles from './styles'
 
-const History = () => {
-
+const History = (props) => {
     //Status: 0- pendente 
             // 1 - pago 
             // 2 - vencido
@@ -50,57 +49,66 @@ const History = () => {
     ]
     
     return (
-        // <ScrollView>
             <View style={Styles.container}>
                 <>
                     {Boletos.map(boleto => (
-                        <>
+                       
                             
-                            <View>
-                                <View style={{flexDirection: 'row', width: '90%'}}>
+                            <>
+                                { boleto.status == props.state ?
 
-                                    {boleto.status == 0 ? 
-                                            <SvgUri style={{marginRight: 10}} source={require('../../../assets/boleto.svg')} />
+
+                                    <View>
+                                        <View style={{flexDirection: 'row', width: '90%'}}>
+
+                                            {boleto.status == 0 ? 
+                                                    <SvgUri style={{marginRight: 10}} source={require('../../../assets/boleto.svg')} />
+                                                
+                                                : boleto.status == 1 ?
+                                                    <SvgUri style={{marginRight: 10}} fill='#34AF2B' fillAll source={require('../../../assets/boleto.svg')} />
+                                                
+                                                : boleto.status == 2 ?
+                                                    <SvgUri style={{marginRight: 10}} fill='#D45454' fillAll source={require('../../../assets/boleto.svg')} />
+
+                                                : undefined
+                                            }
+                                            
+                                                <View style={Styles.containerLine}>
+                                                    <Text style={Styles.title}>{boleto.empresa}</Text>
+                                                    <Text style={Styles.date}>{boleto.data}</Text>
+                                                </View>
+                                            
+                                            
+                                        </View>  
                                         
-                                        : boleto.status == 1 ?
-                                            <SvgUri style={{marginRight: 10}} fill='#34AF2B' fillAll source={require('../../../assets/boleto.svg')} />
+                                        {boleto.status == 0 ? 
+                                            <View style={Styles.valueContainerPendente}> 
+                                                <Text style={Styles.value}>R${boleto.valor}</Text>
+                                            </View> 
+
+                                            :boleto.status == 1 ? 
+                                            <View style={Styles.valueContainerPago}> 
+                                                <Text style={Styles.value}>R${boleto.valor}</Text>
+                                            </View> 
+
+                                            : boleto.status == 2 ? 
+                                            <View style={Styles.valueContainerVencido}> 
+                                                <Text style={Styles.value}>R${boleto.valor}</Text>
+                                            </View> 
+
+                                            : undefined
+                                        } 
                                         
-                                        : boleto.status == 2 ?
-                                            <SvgUri style={{marginRight: 10}} fill='#D45454' fillAll source={require('../../../assets/boleto.svg')} />
-
-                                        : undefined
-                                    }
-
-                                    <View style={Styles.containerLine}>
-                                        <Text style={Styles.title}>{boleto.empresa}</Text>
-                                        <Text style={Styles.date}>{boleto.data}</Text>
                                     </View>
-                                </View>  
 
-                                {boleto.status == 0 ? 
-                                    <View style={Styles.valueContainerPendente}> 
-                                        <Text style={Styles.value}>R${boleto.valor}</Text>
-                                    </View> 
-
-                                    :boleto.status == 1 ? 
-                                    <View style={Styles.valueContainerPago}> 
-                                        <Text style={Styles.value}>R${boleto.valor}</Text>
-                                    </View> 
-
-                                    : boleto.status == 2 ? 
-                                    <View style={Styles.valueContainerVencido}> 
-                                        <Text style={Styles.value}>R${boleto.valor}</Text>
-                                    </View> 
-
-                                    : undefined
-                                } 
-                            </View>
-                            
-                        </>
+                                    : undefined 
+                                }
+                                
+                            </>
+                                
                     ))}
                 </>
             </View>
-        // </ScrollView>
     )
 }
 
