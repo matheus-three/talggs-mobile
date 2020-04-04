@@ -15,7 +15,7 @@ const Header = (props) => {
                 />
                 <Text style={Style.header_name}>{props.name}</Text>
             </View>
-            {props.seta === "true" && (
+            {props.arrowBtn === "true" && (
                 <View style={Style.arrow}>
                     <SvgUri
                             fill="#F7F6EE"
@@ -25,7 +25,7 @@ const Header = (props) => {
                     <Text style={Style.header_title}>{props.title}</Text>
                 </View>
             )}
-            {props.seta !== "true" && (
+            {props.arrowBtn !== "true" && (
                 <View style={Style.arrow}>
                     <Text style={Style.header_onlyTitle}>{props.title}</Text>
                 </View>

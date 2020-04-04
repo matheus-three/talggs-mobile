@@ -1,12 +1,6 @@
 import {StyleSheet} from 'react-native';
-import Constants from 'expo-constants';
 
 const styles = StyleSheet.create({
-    statusBar: {
-        backgroundColor: "#232F40",
-        height: Constants.statusBarHeight,
-    },
-
     container: {
       backgroundColor: '#232F40',
       width: '100%',
@@ -56,8 +50,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#f2a950',
-        marginBottom: 40,
-        marginTop: 50,
+        marginBottom: 80,
+        marginTop: 30,
         marginLeft: 12,
         marginRight: 12,
     },
