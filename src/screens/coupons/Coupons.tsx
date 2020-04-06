@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { View, Text, TouchableOpacity, Clipboard, Alert, ScrollView } from 'react-native'
-import SvgUri from "expo-svg-uri";
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Styles from './styles'
 
@@ -65,7 +65,7 @@ const Coupons = () => {
                                     <View style={Styles.containerLine}>
                                         <Text style={Styles.itemsTitle}>Pontos: </Text>
                                         <Text style={Styles.items}>{cupom.pontos}</Text>
-                                        <SvgUri fill='#F2A950' fillAll source={require('../../../assets/point_star.svg')} />
+                                        <Ionicons style={Styles.star} name={'md-star-outline'} size={25} color={"#f2a950"} />
                                     </View>
 
                                     <View style={Styles.containerLine}>

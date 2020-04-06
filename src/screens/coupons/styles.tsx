@@ -12,7 +12,8 @@ export const styles = StyleSheet.create({
         backgroundColor: '#F7F6EE',
         width: '90%',
         height: 225,
-        marginTop: '10%',
+        marginTop: '5%',
+        marginBottom: '5%',
         borderWidth: 1,
         borderColor: "#F7F6EE",
         borderRadius: 15,
@@ -38,6 +39,9 @@ export const styles = StyleSheet.create({
         fontSize: 20,
         color: '#BEBCBC',
         fontWeight: 'bold'
+    },
+    star: {
+       marginLeft: 2,
     },
     containerLine: {
         flexDirection: 'row',
