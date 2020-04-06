@@ -39,29 +39,6 @@ const styles = StyleSheet.create({
         marginLeft: 10,
     },
 
-    buttonContainer: {
-        justifyContent: 'space-around',
-    },
-
-    button: {
-        width: '40%',
-        height: 60,
-        borderRadius: 50,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#f2a950',
-        marginBottom: 80,
-        marginTop: 30,
-        marginLeft: 12,
-        marginRight: 12,
-    },
-
-    button_text: {
-        color: '#101D25',
-        fontWeight: 'bold',
-        fontSize: 18,
-    },
-
     row: {
         flexDirection: "row",
     },
@@ -90,6 +67,30 @@ const styles = StyleSheet.create({
 
     halfSm: {
         width: '20%',
+    },
+
+    
+    buttonContainer: {
+        justifyContent: 'space-around',
+    },
+
+    button: {
+        width: '40%',
+        height: 60,
+        borderRadius: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#f2a950',
+        marginBottom: 50,
+        marginTop: 30,
+        marginLeft: 12,
+        marginRight: 12,
+    },
+
+    button_text: {
+        color: '#101D25',
+        fontWeight: 'bold',
+        fontSize: 18,
     },
 });
 

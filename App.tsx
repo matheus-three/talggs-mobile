@@ -1,17 +1,56 @@
-import React from 'react';
-import { View, Text } from 'react-native';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 
-import Register from './src/screens/register/Register';
-import Perfil_Edit from './src/screens/perfil_edit/Perfil_Edit'
-import Perfil from './src/screens/perfil/Perfil'
+import BeforeScreen from './src/BeforeScreen'
+import RootLogin from './src/roots/RootLogin'
+import RootTabMenu from './src/roots/RootTabMenu'
 
-import Style from './style'
+import { AuthContext }  from './src/Context'
 
-export default function App() {
+export default () => {
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [userToken, setUserToken] = React.useState(null); //se por um nome, iniciará para o home, se por null vai para tela login
+
+  const authContext = React.useMemo(() => {
+    return {
+      signIn: () => {
+        setIsLoading(false);
+        setUserToken("amanda");
+      },
+      signUp: () => {
+        setIsLoading(false);
+        setUserToken("amanda");
+      },
+      signOut: () => {
+        setIsLoading(false);
+        setUserToken(null);
+      },
+    };
+  }, []);
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  }, []);
+
+  if (isLoading) {
+    return <BeforeScreen />;
+  }
+
   return (
-    <View>
-      <View style={Style.statusBar}></View>
-      <Register/>
-    </View>
+    <AuthContext.Provider value={authContext}>
+      <NavigationContainer>
+        {userToken ? (
+          <RootTabMenu/> 
+        ) : (
+          <RootLogin/>
+        )}
+      </NavigationContainer>
+    </AuthContext.Provider>
   );
-}
+};
+
+
+
+
