@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Points from '../screens/points/Points'
 
-import Header from '../components/Header'
+import Header from '../components/header/Header'
 
 const Stack = createStackNavigator();
 function RootPoints() {

@@ -1,16 +1,17 @@
 import React from 'react';
 import { View, Text} from 'react-native';
 import SvgUri from 'expo-svg-uri';
+
 import {StyleSheet} from 'react-native';
 
-const Header = (props) => {
+function HeaderLeft( props ) {
     return (
         <View>
             <View style={Style.header}>
                 <SvgUri
                     width="50"
                     height="50"
-                    source={require('../../assets/logo.svg')}
+                    source={require('../../../assets/Logo.svg')}
                 />
                  <Text style={Style.header_name}>{props.name}</Text>
             </View>
@@ -18,13 +19,14 @@ const Header = (props) => {
         </View>
     )
 }
-    
+
 const Style = StyleSheet.create({
     header: {
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
         marginBottom: 10,
+        marginLeft: -56,
     },
 
     header_name: {
@@ -35,10 +37,10 @@ const Style = StyleSheet.create({
 
     header_title: {
         color: '#F7F6EE',
-        marginLeft: 65,
+        marginLeft: 8,
         fontSize: 20,
     },
 })
 
 
-export default Header
+export default HeaderLeft

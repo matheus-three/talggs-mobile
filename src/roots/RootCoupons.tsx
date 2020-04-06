@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Coupons from '../screens/coupons/Coupons'
 
-import Header from '../components/Header'
+import Header from '../components/header/Header'
 
 const Stack = createStackNavigator();
 function RootCoupons() {

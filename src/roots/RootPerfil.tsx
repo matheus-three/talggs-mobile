@@ -4,8 +4,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Perfil from '../screens/perfil/Perfil'
 import PerfilEdit from '../screens/perfil/perfil_edit/PerfilEdit';
 
-import Header from '../components/Header'
-import HeaderLeft from '../components/HeaderLeft'
+import Header from '../components/header/Header'
+import HeaderLeft from '../components/header/HeaderLeft'
 
 const Stack = createStackNavigator();
 function RootPefil() {
