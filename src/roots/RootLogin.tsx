@@ -8,7 +8,16 @@ const Stack = createStackNavigator();
 function RootLogin() {
 	return (
 		<Stack.Navigator>
-			<Stack.Screen name="Login" component={Login} />
+			<Stack.Screen
+				 name="Login" 
+				 component={Login} 
+				 options={{
+					title: '',
+					headerStyle: {
+					  height: 0,
+					},
+				}}
+			/>
 			<Stack.Screen 
 				name="Cadastro" 
 				component={Register} 
