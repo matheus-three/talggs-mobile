@@ -3,12 +3,12 @@ import { View } from 'react-native';
 
 import Register from './src/screens/register/Register';
 
-import Login from './src/screens/login'
+import Register from './src/screens/register'
 
 export default function App() {
 	return (
 		<View>
-			<Login />
+			<Register />
 		</View>
 	);
 }
