@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import Historic from '../screens/historic/statusNavigation/Historic'
-
+//import Historic from '../screens/historic/statusNavigation/Historic'
+import Historic from '../screens/historic/Historic'
 import HeaderHistoric from '../components/header/HeaderHistoric'
 
 const Stack = createStackNavigator();
