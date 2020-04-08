@@ -1,18 +1,17 @@
-import React from 'react';
-
-import { KeyboardAvoidingView, TextInput, Text, Platform, } from 'react-native';
-
+import * as React from 'react';
+import { View, Button, KeyboardAvoidingView, TextInput, Text, Platform, } from 'react-native';
 import SvgUri from "expo-svg-uri";
+import GradientButton from 'react-native-gradient-buttons'
+import { AuthContext } from '../../Context'
 
-import GradientButton from "react-native-gradient-buttons";
+import Style from './style'
 
-import Style from './style';
+const Login = ({ navigation }) => {
+const { signIn } = React.useContext(AuthContext);
 
-const Login = () => {
-
-    return (
+return (
         <KeyboardAvoidingView
-            behavior={Platform.Os == "ios" ? "padding" : "height"}
+            behavior={Platform.OS == "ios" ? "padding" : "height"}
             style={Style.container}
         > 
             <SvgUri
@@ -33,14 +32,16 @@ const Login = () => {
                 radius={50}
                 impact
                 impactStyle='Light'
-                onPressAction={() => alert('You pressed me!')}
+                onPressAction = {() => signIn()} 
             >
                 ACESSAR
             </GradientButton>
 
-            <Text style={Style.text}>Ainda não possui uma conta? Cadastre-se!</Text>
-        </KeyboardAvoidingView>
-    )
-}
+            <Text style={Style.text} onPress={() => navigation.push("Cadastro")}>Ainda não possui uma conta? Cadastre-se!</Text>
 
-export default Login;
+        </KeyboardAvoidingView>
+    );
+};
+
+export default Login
+

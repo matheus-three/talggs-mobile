@@ -3,7 +3,7 @@ import { View, Text} from 'react-native';
 import SvgUri from 'expo-svg-uri'
 import {StyleSheet} from 'react-native';
 
-const Header = (props) => {
+const HeaderHistoric = (props) => {
     return (
         <View>
             <View style={Style.header}>
@@ -14,7 +14,6 @@ const Header = (props) => {
                 />
                  <Text style={Style.header_name}>{props.name}</Text>
             </View>
-            <Text style={Style.header_title}>{props.title}</Text>
         </View>
     )
 }
@@ -32,13 +31,7 @@ const Style = StyleSheet.create({
         marginLeft: 10,
         fontSize: 20,
     },
-
-    header_title: {
-        color: '#F7F6EE',
-        marginLeft: 65,
-        fontSize: 20,
-    },
 })
 
 
-export default Header
+export default HeaderHistoric

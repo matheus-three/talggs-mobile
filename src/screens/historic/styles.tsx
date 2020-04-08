@@ -3,17 +3,16 @@ import Constants from 'expo-constants';
 
 export const styles = StyleSheet.create({
     container: {
-        marginTop: Constants.statusBarHeight,
         backgroundColor: '#F7F6EE',
         height: '100%',   
-        paddingHorizontal: '5%' 
+        paddingHorizontal: '5%',
+        paddingTop: 10,
     },
     containerLine: {
         width: '100%',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between'
-
     },
     title: {
         fontSize: 16,

@@ -20,12 +20,14 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
         marginLeft: 30,
         fontSize: 20,
-        marginTop: 10,
+        marginTop: 20,
     },
-    
-    header_btn: {
-        marginTop: 10,
-        marginLeft: 20,
+
+    arrow: {
+        flexDirection: "row",
+        alignItems: 'center',
+        marginTop: 20,
+        marginLeft: 10,
     },
 
     input: {
@@ -81,7 +83,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#f2a950',
-        marginBottom: 80,
+        marginBottom: 40,
         marginTop: 50,
     },
 
@@ -102,7 +104,6 @@ const styles = StyleSheet.create({
     halfSm: {
         width: '20%',
     },
-
 });
 
 

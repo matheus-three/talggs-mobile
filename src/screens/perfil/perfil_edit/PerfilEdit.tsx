@@ -4,41 +4,37 @@ import { Dropdown } from 'react-native-material-dropdown';
 
 import Style from './style';
 
-import Header from '../../components/header/Header'
+const PerfilEdit = () => {
+	//dados que virão por uma API
+	const [name, setName] = useState("Jake Peralta")
+	const [email, setEmail] = useState("jake99@pda.com")
+	const [cpf, setCpf] = useState("999.999.999-99")
+	const [gender, setGender] = useState("Masculino")
+	const [birthDate, setBirthDate] = useState("17/05/1986")
+	const [cep, setCep] = useState("18.321.297")
+	const [number, setNumber] = useState("99")
+	const [street, setStreet] = useState("Manuel Algusto Rangel")
+	const [neighborhood, setNeighborhood] = useState("Vila da Folha")
+	const [city, setCity] = useState("Tokyo")
 
-const Edit = () => {
-    //dados que virão por uma API
-    const [name, setName] = useState("Jake Peralta")
-    const [email, setEmail] = useState("jake99@pda.com")
-    const [cpf, setCpf] = useState("999.999.999-99")
-    const [gender, setGender] = useState("Masculino")
-    const [birthDate, setBirthDate] = useState("17/05/1986")
-    const [cep, setCep] = useState("18.321.297")
-    const [number, setNumber] = useState("99")
-    const [street, setStreet] = useState("Manuel Algusto Rangel")
-    const [neighborhood, setNeighborhood] = useState("Vila da Folha")
-    const [city, setCity] = useState("Tokyo")
+	const [date, setDate] = useState('');
 
-    const [date, setDate] = useState('');
+	let uf = [
+		{value: 'AC'}, {value: 'AL'}, {value: 'AP'}, {value: 'AM'}, {value: 'BA'}, {value: 'CE'}, {value: 'DF'}, {value: 'ES'}, {value: 'GO'}, {value: 'MA'}, {value: 'MT'}, {value: 'MS'}, {value: 'MG'}, {value: 'PA'}, {value: 'PB'}, {value: 'PR'}, {value: 'PE'}, {value: 'PI'}, {value: 'RJ'}, {value: 'RN'}, {value: 'RS'}, {value: 'RO'}, {value: 'RR'}, {value:'SC'},{value: 'SP'}, {value: 'SE'}, {value: 'TO'}
+	];
 
-    let uf = [
-        {value: 'AC'}, {value: 'AL'}, {value: 'AP'}, {value: 'AM'}, {value: 'BA'}, {value: 'CE'}, {value: 'DF'}, {value: 'ES'}, {value: 'GO'}, {value: 'MA'}, {value: 'MT'}, {value: 'MS'}, {value: 'MG'}, {value: 'PA'}, {value: 'PB'}, {value: 'PR'}, {value: 'PE'}, {value: 'PI'}, {value: 'RJ'}, {value: 'RN'}, {value: 'RS'}, {value: 'RO'}, {value: 'RR'}, {value:'SC'},{value: 'SP'}, {value: 'SE'}, {value: 'TO'}
-    ];
+	const changeDate = value => {
+		setDate(value);
+	}
 
-    const changeDate = value => {
-        setDate(value);
-    }
-
-    return(
+	return (
         <KeyboardAvoidingView
             behavior={Platform.OS == "ios" ? "padding" : "height"}
             style={Style.container}
         > 
-        
-        <Header title="EDITAR PERFIL" name={name} arrowBtn="true"/>
-
+    
         <ScrollView>
-            <View style={{alignItems: 'center'}}>
+            <View style={{alignItems: 'center', marginTop: 20}}>
                 <Text style={Style.labelTitle}>Nome Completo:</Text>
                 <TextInput placeholder="Nome Completo" value={name} style={Style.input}/>
 
@@ -100,7 +96,8 @@ const Edit = () => {
             </View>  
         </ScrollView>   
     </KeyboardAvoidingView>
-    )
+	);
 }
 
-export default Edit;
+export default PerfilEdit
+  

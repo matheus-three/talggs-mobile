@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 
-import { View, Text, TouchableOpacity, Clipboard, Button, Alert } from 'react-native'
+import { View, Text, TouchableOpacity, Clipboard, ScrollView, Alert } from 'react-native'
 
 import Styles from './styles'
 
-import SvgUri from "expo-svg-uri";
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const PurchaseDetails = () => {
     const [empresa, setEmpresa] = useState('Ebanx S.A')
@@ -12,7 +12,7 @@ const PurchaseDetails = () => {
     const [dataEmissao, setDataEmissao] = useState('24 fev 2020')
     const [dataVencimento, setDataVencimento] = useState('20 mar 2020')
     const [pontos, setPontos] = useState('20')
-    const [parcelas, setParcelas] = useState('0')
+    const [parcelas, setParcelas] = useState('2')
     const [codigo, setCodigo] = useState('445566778899101011111212')
 
     const produtos = [
@@ -33,9 +33,14 @@ const PurchaseDetails = () => {
             qtde: 1,
             vlUnit: 100,
             vlTotal: 100,
+        },
+        {
+            descricao: 'Kunai',
+            qtde: 1,
+            vlUnit: 100,
+            vlTotal: 100,
         }
     ]
-
 
     const copyToClipboard = () => {
         Clipboard.setString(codigo)
@@ -43,7 +48,7 @@ const PurchaseDetails = () => {
     }
 
     return (
-        <View style={Styles.container}>
+        <ScrollView style={Styles.container}>
             <View style={Styles.containerInfos}>
                 <Text style={Styles.companyName}>
                     {empresa}
@@ -76,12 +81,12 @@ const PurchaseDetails = () => {
                 <Text style={Styles.totalPoints}>
                     {pontos}
                 </Text>
-                <SvgUri fill='#F2A950' fillAll source={require('../../../assets/point_star.svg')} />
+                <Ionicons style={Styles.star} name={'md-star-outline'} size={25} color={"#f2a950"} />
             </View>
 
             <View style={Styles.containerLine}>
                 <Text style={Styles.title}>Nº de parcelas: </Text>
-                <Text style={Styles.infos}>
+                <Text style={Styles.totalInstallments}>
                     {parcelas}
                 </Text>
             </View>
@@ -92,11 +97,11 @@ const PurchaseDetails = () => {
                     {codigo}
                 </Text >
                 <TouchableOpacity style={Styles.button} onPress={() => copyToClipboard()}>
-                    <Text style={Styles.buttonText} >COPIAR</Text>
+                    <Text style={Styles.buttonText}>COPIAR</Text>
                 </TouchableOpacity>
             </View>
 
-            <View >
+            <View>
                 <Text style={Styles.title}>Produtos </Text>
 
                 <View style={Styles.containerItems}>
@@ -116,14 +121,10 @@ const PurchaseDetails = () => {
                             </>
                         ))} 
                     </>
-                    
-
                 </View>
+                <View style={Styles.extra}></View>
             </View>
-
-
-
-        </View>
+    </ScrollView>
     )
 
 }
