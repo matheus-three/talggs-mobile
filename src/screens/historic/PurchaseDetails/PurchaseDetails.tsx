@@ -36,7 +36,6 @@ const PurchaseDetails = () => {
         }
     ]
 
-
     const copyToClipboard = () => {
         Clipboard.setString(codigo)
         Alert.alert("Copiado")
@@ -116,14 +115,9 @@ const PurchaseDetails = () => {
                             </>
                         ))} 
                     </>
-                    
-
-                </View>
             </View>
-
-
-
         </View>
+    </View>
     )
 
 }

@@ -3,14 +3,12 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 
 const Tab = createMaterialTopTabNavigator();
 
-import PendingAccount from './PendingAccount'
-import PaidAccount from './PaidAccount'
-import OverdueAccount from './OverdueAccount'
+import Accounts from './Accounts'
 
-export const Historic =  () => {
+export const HistoricTabMenu =  () => {
   return (
     <Tab.Navigator
-        initialRouteName="PendingAccount"
+        initialRouteName="Account"
     
         tabBarOptions={{
             activeTintColor: '#A7E4F2',
@@ -26,23 +24,25 @@ export const Historic =  () => {
     >
         <Tab.Screen 
             name="PendingAccount" 
-            component={PendingAccount} 
-            options={{ tabBarLabel: 'Pendentes' }}
+            component={Accounts} 
+            options={{ tabBarLabel: 'Pendentes'}}
+            initialParams={{ status: 0}}
         />
         <Tab.Screen 
             name="OverdueAccount" 
-            component={OverdueAccount} 
-            options={{ tabBarLabel: 'Vencidas' }}
+            component={Accounts} 
+            options={{ tabBarLabel: 'Atrasados' }}
+            initialParams={{ status: 1}}
         />
         <Tab.Screen 
             name="PaidAccount" 
-            component={PaidAccount} 
-            options={{ tabBarLabel: 'Pagas' }}
+            component={Accounts} 
+            options={{ tabBarLabel: 'Pagos' }}
+            initialParams={{ status: 2}}
         />
     </Tab.Navigator>
   );
 }
 
-export default Historic
-
+export default HistoricTabMenu
 

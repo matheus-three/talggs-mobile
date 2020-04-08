@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-//import Historic from '../screens/historic/statusNavigation/Historic'
-import Historic from '../screens/historic/Historic'
+import HistoricTabMenu from '../screens/historic/HistoricTabMenu'
 import HeaderHistoric from '../components/header/HeaderHistoric'
 
 const Stack = createStackNavigator();
@@ -11,7 +10,7 @@ function RootHistoric() {
 		<Stack.Navigator>
 			<Stack.Screen 
 				name="Histórico" 
-				component={Historic} 
+				component={HistoricTabMenu} 
 				options={{
 					title: 'Perfil',
 					headerStyle: {
