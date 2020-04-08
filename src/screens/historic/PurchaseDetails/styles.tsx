@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
     },
     containerLine: {
         flexDirection: 'row',
-        marginBottom: 29
+        marginBottom: 29,
     },
     companyName: {
         fontSize: 24,
@@ -37,9 +37,17 @@ export const styles = StyleSheet.create({
         fontSize: 18,
         color:'#F2A950',
         fontWeight: 'bold',
+        alignSelf: 'center',
+    },
+    totalInstallments: {
+        fontSize: 18,
+        color: '#101D25',
+        fontWeight: 'bold',
+        alignSelf: 'center',
     },
     star: {
         marginLeft: 2,
+        alignSelf: 'center',
     },
     title: {
         fontSize: 20,
@@ -50,6 +58,7 @@ export const styles = StyleSheet.create({
         fontSize: 18,
         color: '#101D25',
         fontWeight: 'bold',
+        marginTop: 8,
     },
     button: {
         width: '45%',
@@ -58,8 +67,8 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#f2a950',
-        marginBottom: 40,
-        marginTop: 50,
+        marginBottom: 30,
+        marginTop: 30,
         alignSelf: 'center'
     },
     buttonText: {

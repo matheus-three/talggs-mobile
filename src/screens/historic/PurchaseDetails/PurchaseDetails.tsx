@@ -12,7 +12,7 @@ const PurchaseDetails = () => {
     const [dataEmissao, setDataEmissao] = useState('24 fev 2020')
     const [dataVencimento, setDataVencimento] = useState('20 mar 2020')
     const [pontos, setPontos] = useState('20')
-    const [parcelas, setParcelas] = useState('0')
+    const [parcelas, setParcelas] = useState('2')
     const [codigo, setCodigo] = useState('445566778899101011111212')
 
     const produtos = [
@@ -86,7 +86,7 @@ const PurchaseDetails = () => {
 
             <View style={Styles.containerLine}>
                 <Text style={Styles.title}>Nº de parcelas: </Text>
-                <Text style={Styles.infos}>
+                <Text style={Styles.totalInstallments}>
                     {parcelas}
                 </Text>
             </View>
@@ -97,7 +97,7 @@ const PurchaseDetails = () => {
                     {codigo}
                 </Text >
                 <TouchableOpacity style={Styles.button} onPress={() => copyToClipboard()}>
-                    <Text style={Styles.buttonText} >COPIAR</Text>
+                    <Text style={Styles.buttonText}>COPIAR</Text>
                 </TouchableOpacity>
             </View>
 
