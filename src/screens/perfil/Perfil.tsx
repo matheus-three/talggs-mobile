@@ -1,14 +1,29 @@
 import React, { useState }  from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, Alert} from 'react-native';
 import { AuthContext } from '../../Context'
 
 import Style from './style';
 
 const Perfil = ({ navigation }) => {
-	const { signOut } = React.useContext(AuthContext);
-
 	//dados que virão por uma API
 	const [name, setName] = useState("Jake Peralta")
+
+	const { signOut } = React.useContext(AuthContext);
+
+	const confirmAlert = () => {
+		Alert.alert (
+			'Alerta',
+			'Tem certeza que deseja sair da sua conta?',
+			[
+			  {
+				text: 'Não',
+				style: 'cancel',
+			  },
+			  {text: 'Sim', onPress: () => signOut()},
+			],
+			{cancelable: false},
+		)
+	}
 
 	return (
 		<View style={Style.container}>
@@ -16,7 +31,7 @@ const Perfil = ({ navigation }) => {
                 <TouchableOpacity style={Style.button} onPress={() => navigation.navigate('PerfilEdit')}>
                     <Text style={Style.button_text}>Editar Perfil</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={Style.button}  onPress={() => signOut()} >
+                <TouchableOpacity style={Style.button}  onPress= {confirmAlert} >
                     <Text style={Style.button_text}>Logoff</Text>
                 </TouchableOpacity>
             </View>
@@ -24,3 +39,4 @@ const Perfil = ({ navigation }) => {
 	);
 }
 export default Perfil
+
