@@ -1,13 +1,12 @@
 import { StyleSheet } from 'react-native';
-import Constants from 'expo-constants';
 
 export const styles = StyleSheet.create({
     container: {
         backgroundColor: '#F7F6EE',
         height: '100%',
         width: '100%',
-        marginTop: Constants.statusBarHeight,
-        paddingHorizontal: '10%'
+        paddingHorizontal: '10%',
+        paddingTop: 20,
     },
     containerInfos: {
         flexDirection: 'row',
@@ -38,6 +37,9 @@ export const styles = StyleSheet.create({
         fontSize: 18,
         color:'#F2A950',
         fontWeight: 'bold',
+    },
+    star: {
+        marginLeft: 2,
     },
     title: {
         fontSize: 20,
@@ -76,7 +78,6 @@ export const styles = StyleSheet.create({
         fontWeight: 'bold',
         width: '15%',
         marginBottom: 8,
-
     },
     productItemsDesc: {
         width: '30%',
@@ -84,14 +85,16 @@ export const styles = StyleSheet.create({
         fontSize: 16,
         color: '#232F40',
         fontWeight: 'bold',
-        
     },
     containerItems: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginTop: 10,
-        flexWrap: 'wrap'
+        flexWrap: 'wrap',
     },
+    extra: {
+        height: 50,
+    }
 });
 
 

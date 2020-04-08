@@ -3,6 +3,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import HistoricTabMenu from '../screens/historic/HistoricTabMenu'
 import HeaderHistoric from '../components/header/HeaderHistoric'
+import PurchaseDetails from '../screens/historic/purchaseDetails/PurchaseDetails'
+import HeaderLeft from '../components/header/HeaderLeft'
 
 const Stack = createStackNavigator();
 function RootHistoric() {
@@ -22,6 +24,26 @@ function RootHistoric() {
 					  fontWeight: 'bold',
 					},
 					headerTitle: props => <HeaderHistoric name="Eai Jake Peralta, beleza?"/>
+				  }} 
+			/>
+			<Stack.Screen 
+				name="PurchaseDetails" 
+				component={PurchaseDetails} 
+				options={{
+					title: 'Detalhes',
+					headerStyle: {
+					  backgroundColor: '#101D25',
+					  height: 140,
+					},
+					headerTitleStyle: {
+					  fontWeight: 'bold',
+					  color: 'white',
+					},
+					headerTintColor:'white',
+					headerLeftContainerStyle: {
+					  top: 65,
+					},
+					headerTitle: props => <HeaderLeft title="DETALHES" name="Jake Peralta"/>
 				  }} 
 			/>
 		</Stack.Navigator>

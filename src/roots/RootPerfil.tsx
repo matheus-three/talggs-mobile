@@ -36,7 +36,6 @@ function RootPefil() {
             backgroundColor: '#101D25',
             height: 140,
           },
-
           headerTitleStyle: {
             fontWeight: 'bold',
             color: 'white',

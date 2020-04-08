@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
 
-import { View, Text, TouchableOpacity, Clipboard, Button, Alert } from 'react-native'
+import { View, Text, TouchableOpacity, Clipboard, ScrollView, Alert } from 'react-native'
 
 import Styles from './styles'
 
-import SvgUri from "expo-svg-uri";
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const PurchaseDetails = () => {
     const [empresa, setEmpresa] = useState('Ebanx S.A')
@@ -33,6 +33,12 @@ const PurchaseDetails = () => {
             qtde: 1,
             vlUnit: 100,
             vlTotal: 100,
+        },
+        {
+            descricao: 'Kunai',
+            qtde: 1,
+            vlUnit: 100,
+            vlTotal: 100,
         }
     ]
 
@@ -42,7 +48,7 @@ const PurchaseDetails = () => {
     }
 
     return (
-        <View style={Styles.container}>
+        <ScrollView style={Styles.container}>
             <View style={Styles.containerInfos}>
                 <Text style={Styles.companyName}>
                     {empresa}
@@ -75,7 +81,7 @@ const PurchaseDetails = () => {
                 <Text style={Styles.totalPoints}>
                     {pontos}
                 </Text>
-                <SvgUri fill='#F2A950' fillAll source={require('../../../assets/point_star.svg')} />
+                <Ionicons style={Styles.star} name={'md-star-outline'} size={25} color={"#f2a950"} />
             </View>
 
             <View style={Styles.containerLine}>
@@ -95,7 +101,7 @@ const PurchaseDetails = () => {
                 </TouchableOpacity>
             </View>
 
-            <View >
+            <View>
                 <Text style={Styles.title}>Produtos </Text>
 
                 <View style={Styles.containerItems}>
@@ -115,9 +121,10 @@ const PurchaseDetails = () => {
                             </>
                         ))} 
                     </>
+                </View>
+                <View style={Styles.extra}></View>
             </View>
-        </View>
-    </View>
+    </ScrollView>
     )
 
 }
