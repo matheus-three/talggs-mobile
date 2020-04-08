@@ -9,11 +9,11 @@ import Style from './style';
 const Register = () => {
 	const [date, setDate] = useState('');
 
-	let sexo = [
+	const sexo = [
 		{value: 'Feminino'}, {value: 'Masculino'}
 	];
 
-	let uf = [
+	const uf = [
 		{value: 'AC'}, {value: 'AL'}, {value: 'AP'}, {value: 'AM'}, {value: 'BA'}, {value: 'CE'}, {value: 'DF'}, {value: 'ES'}, {value: 'GO'}, {value: 'MA'}, {value: 'MT'}, {value: 'MS'}, {value: 'MG'}, {value: 'PA'}, {value: 'PB'}, {value: 'PR'}, {value: 'PE'}, {value: 'PI'}, {value: 'RJ'}, {value: 'RN'}, {value: 'RS'}, {value: 'RO'}, {value: 'RR'}, {value:'SC'},{value: 'SP'}, {value: 'SE'}, {value: 'TO'}
 	];
 
@@ -105,23 +105,3 @@ const Register = () => {
 };
 
 export default Register
-
-
-/*
-import * as React from 'react';
-import { Button, Text, View } from 'react-native';
-import { AuthContext } from '../../Context'
-
-export const Register = () => {
-  const { signUp } = React.useContext(AuthContext);
-  return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Cadastro!</Text>
-        <Button title="Cadastrar-se" onPress={() => signUp()} /> 
-      </View>
-  );
-};
-  
-export default Register
-
-*/
