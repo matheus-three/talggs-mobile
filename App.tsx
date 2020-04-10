@@ -31,11 +31,11 @@ export default () => {
   React.useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
+    }, 2000);
   }, []);
 
   if (isLoading) {
-    return <BeforeScreen />;
+    return <BeforeScreen/>
   }
 
   return (

@@ -3,7 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import HistoricTabMenu from '../screens/historic/HistoricTabMenu'
 import HeaderHistoric from '../components/header/HeaderHistoric'
-import PurchaseDetails from '../screens/historic/purchaseDetails/PurchaseDetails'
+import PurchaseDetails from '../screens/historic/PurchaseDetails/PurchaseDetails'
 import HeaderLeft from '../components/header/HeaderLeft'
 
 const Stack = createStackNavigator();
