@@ -7,7 +7,7 @@ import RootCoupons from './RootCoupons';
 import RootPoints from './RootPoints'
 import RootHistoric from './RootHistoric'
 import RootPerfil from './RootPerfil'
-import RootLogoff from './RootLogoff'
+import RootClose from './RootClose'
 
 const Tab = createBottomTabNavigator();
 	const RootTabMenu = () => {
@@ -97,7 +97,7 @@ const Tab = createBottomTabNavigator();
 			/>
 			<Tab.Screen 
 				name="Fechar" 
-				component={RootLogoff} 
+				component={RootClose} 
 				options={{
 					tabBarIcon: ({ color, size }) =>  (
 						<Ionicons name={'md-exit'} size={size} color={color} />
