@@ -1,0 +1,67 @@
+import {StyleSheet} from 'react-native';
+
+const styles = StyleSheet.create({
+    container: {
+        backgroundColor: '#232F40',
+        height: '100%',
+        width: '100%',
+        alignItems: 'center'
+    },
+    couponContainer: {
+        width:'90%',
+        justifyContent: 'space-between',
+        backgroundColor: '#F7F6EE',
+        marginTop: '5%',
+        borderRadius: 15,
+        paddingHorizontal: 24,
+        paddingVertical: 13,
+    },
+    header: {
+        flexDirection: 'row', 
+        justifyContent: 'space-between', 
+        alignItems: 'center' 
+    },
+    title: {
+        color: '#232F40',
+        fontSize: 20,
+        fontWeight: 'bold',
+        
+    },
+    points: {
+        color: '#F2A950',
+        fontWeight: 'bold',
+        fontSize: 25,
+    },
+    label: {
+        width: '60%',
+        color:'#BEBCBC',
+        fontSize: 20,
+    },
+    containerLine: {
+        width: '60%',
+        marginTop: '2%',
+        marginRight: '5%',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    items: {
+        marginLeft: '5%',
+        width: '60%',
+        fontSize: 16,
+        color: '#2D4F6C'
+    },
+    generateCoupons: {
+        fontSize: 16,
+        color: '#2D4F6C',
+        fontWeight: 'bold',
+    },
+    containerGenerateCoupons: {
+        marginTop: '2%',
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'center'
+    },
+});
+
+export default styles
+

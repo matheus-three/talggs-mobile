@@ -32,13 +32,13 @@ export const HistoricTabMenu =  () => {
             name="OverdueAccount" 
             component={Accounts} 
             options={{ tabBarLabel: 'Atrasados' }}
-            initialParams={{ status: 1}}
+            initialParams={{ status: 2}}
         />
         <Tab.Screen 
             name="PaidAccount" 
             component={Accounts} 
             options={{ tabBarLabel: 'Pagos' }}
-            initialParams={{ status: 2}}
+            initialParams={{ status: 1}}
         />
     </Tab.Navigator>
   );

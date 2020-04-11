@@ -13,6 +13,7 @@
     "@react-navigation/material-top-tabs": "^5.1.7",
     "@react-navigation/native": "^5.1.4",
     "@react-navigation/stack": "^5.2.9",
+    "accordion-collapse-react-native": "^0.2.8",
     "expo": "~36.0.0",
     "expo-svg-uri": "^1.1.0",
     "react": "~16.9.0",
