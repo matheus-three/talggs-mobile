@@ -10,6 +10,7 @@ export const styles = StyleSheet.create({
     },
     containerLine: {
         width: '100%',
+        marginLeft: '7.9%', 
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between'
@@ -30,19 +31,19 @@ export const styles = StyleSheet.create({
         color: '#101D25',
     },
     valueContainerPendente: {
-        marginLeft: 12,
+        marginLeft: 9,
         borderLeftWidth: 1.5,
         paddingBottom: 20,
         borderLeftColor: '#2D9AA6'
     },
     valueContainerPago: {
-        marginLeft: 12,
+        marginLeft: 9,
         borderLeftWidth: 1.5,
         paddingBottom: 20,
         borderLeftColor: '#34AF2B'
     },
     valueContainerVencido: {
-        marginLeft: 12,
+        marginLeft: 9,
         borderLeftWidth: 1.5,
         paddingBottom: 20,
         borderLeftColor: '#D45454'

@@ -19,8 +19,8 @@ const PurchaseDetails = () => {
         {
             descricao: 'Caneta Bic',
             qtde: 3,
-            vlUnit: 2.0,
-            vlTotal: 6.0,
+            vlUnit: 1.99,
+            vlTotal: 5.97,
         },
         {
             descricao: 'Caderno do Naruto',
@@ -97,7 +97,7 @@ const PurchaseDetails = () => {
                     {codigo}
                 </Text >
                 <TouchableOpacity style={Styles.button} onPress={() => copyToClipboard()}>
-                    <Text style={Styles.buttonText}>COPIAR</Text>
+                    <Text style={Styles.buttonText}>COPIAR CÓDIGO</Text>
                 </TouchableOpacity>
             </View>
 

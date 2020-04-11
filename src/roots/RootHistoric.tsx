@@ -37,9 +37,9 @@ function RootHistoric() {
 					},
 					headerTitleStyle: {
 					  fontWeight: 'bold',
-					  color: 'white',
+					  color: '#F7F6EE',
 					},
-					headerTintColor:'white',
+					headerTintColor:'#F7F6EE',
 					headerLeftContainerStyle: {
 					  top: 65,
 					},

@@ -12,7 +12,7 @@ export const HistoricTabMenu =  () => {
     
         tabBarOptions={{
             activeTintColor: '#A7E4F2',
-            inactiveTintColor: 'white',
+            inactiveTintColor: '#F7F6EE',
             indicatorStyle: {
                 backgroundColor: '#A7E4F2',
                 height: 2,
