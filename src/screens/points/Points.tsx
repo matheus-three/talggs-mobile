@@ -65,50 +65,50 @@ export const Points = () => {
 	const star = <Ionicons name="md-star-outline" size={30} color="#f2a950" />
 
 	return (
-		<View style={Styles.container}>
+		<ScrollView style={Styles.scrollContainer}>
+			<View style={Styles.container}>
+				{pontos.map(ponto => (
 
-			{pontos.map(ponto => (
+					<Collapse style={Styles.couponContainer}>
 
-				<Collapse style={Styles.couponContainer}>
-
-					<CollapseHeader style={Styles.header}>
-						<Text style={Styles.title}>{ponto.titulo}</Text>
-						<Text style={Styles.points}> {ponto.total}{star} </Text>
-					</CollapseHeader>
-
-
-
-					<CollapseBody>
+						<CollapseHeader style={Styles.header}>
+							<Text style={Styles.title}>{ponto.titulo}</Text>
+							<Text style={Styles.points}> {ponto.total}{star} </Text>
+						</CollapseHeader>
 
 
-						<View style={Styles.containerLine}>
-							<Text style={Styles.label}>Pontos</Text>
-							<Text style={Styles.label}>Desconto</Text>
-						</View>
 
-						{ponto.opcaoPontos.map(item => (
+						<CollapseBody>
 
-							<View style={{ flexDirection: 'row', alignItems: 'center' }}>
-								<View style={Styles.containerLine}>
-									<Text style={Styles.items}>{item.qtdPontos}</Text>
-									<Text style={Styles.items}>{item.totalDesconto}%</Text>
-								</View>
 
-								<View style={Styles.containerGenerateCoupons}>
-									<Text style={Styles.generateCoupons}>Gerar cupom</Text>
-									<Text>{chevronRight}</Text>
-								</View>
+							<View style={Styles.containerLine}>
+								<Text style={Styles.label}>Pontos</Text>
+								<Text style={Styles.label}>Desconto</Text>
 							</View>
 
-						))}
+							{ponto.opcaoPontos.map(item => (
 
-					</CollapseBody>
+								<View style={Styles.containerItems}>
+									<View style={Styles.containerLine}>
+										<Text style={Styles.items}>{item.qtdPontos}</Text>
+										<Text style={Styles.items}>{item.totalDesconto}%</Text>
+									</View>
 
-				</Collapse>
+									<View style={Styles.containerGenerateCoupons}>
+										<Text style={Styles.generateCoupons}>Gerar cupom</Text>
+										<Text>{chevronRight}</Text>
+									</View>
+								</View>
 
-			))}
+							))}
 
-		</View>
+						</CollapseBody>
+
+					</Collapse>
+
+				))}
+			</View>
+		</ScrollView>
 	);
 }
 

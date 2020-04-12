@@ -1,10 +1,12 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
-    container: {
+    scrollContainer: {
         backgroundColor: '#232F40',
         height: '100%',
         width: '100%',
+    },
+    container: {
         alignItems: 'center'
     },
     couponContainer: {
@@ -62,6 +64,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'flex-start',
         alignItems: 'center'
+    },
+    containerItems: {
+        flexDirection: 'row', 
+        alignItems: 'center',
+        marginBottom: '2%'
     },
 });
 
