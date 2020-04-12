@@ -16,7 +16,7 @@ export const Points = () => {
 	const pontos = [
 		{
 			titulo: 'EBANX S.A',
-			total: 70,
+			total: 80,
 			opcaoPontos: [
 				{
 					qtdPontos: 100,
@@ -42,55 +42,73 @@ export const Points = () => {
 					totalDesconto: 20,
 				},
 				{
-					qtdPontos: 250,
+					qtdPontos: 350,
 					totalDesconto: 30
 				}
 
 			],
-		}
+		},
 
+		{
+			titulo: 'Submarino',
+			total: 200,
+			opcaoPontos: [
+				{
+					qtdPontos: 1000,
+					totalDesconto: 50,
+				},
+			],
+		},
 	]
 
-	const chevronDown = <Icon name="chevron-down" size={20} color="#101D25" />
-	const chevronUp = <Icon name="chevron-up" size={20} color="#101D25" />
 	const chevronRight = <Icon name="chevron-right" size={20} color="#2D4F6C" />
 	const star = <Ionicons name="md-star-outline" size={30} color="#f2a950" />
 
 	return (
 		<View style={Styles.container}>
-			<Collapse style={Styles.couponContainer}>
 
-				<CollapseHeader style={Styles.header}>
-					<Text style={Styles.title}>EBANX S.A</Text>
-					<Text style={Styles.points}> 70 {star} </Text>
-				</CollapseHeader>
+			{pontos.map(ponto => (
 
-				<CollapseBody>
-					<View style={Styles.containerLine}>
-						<Text style={Styles.label}>Pontos</Text>
-						<Text style={Styles.label}>Desconto</Text>
-					</View>
+				<Collapse style={Styles.couponContainer}>
+
+					<CollapseHeader style={Styles.header}>
+						<Text style={Styles.title}>{ponto.titulo}</Text>
+						<Text style={Styles.points}> {ponto.total}{star} </Text>
+					</CollapseHeader>
 
 
-					<View style={{ flexDirection: 'row', alignItems: 'center' }}>
+
+					<CollapseBody>
+
+
 						<View style={Styles.containerLine}>
-							<Text style={Styles.items}>120</Text>
-							<Text style={Styles.items}>20%</Text>
+							<Text style={Styles.label}>Pontos</Text>
+							<Text style={Styles.label}>Desconto</Text>
 						</View>
 
-						<View style={Styles.containerGenerateCoupons}>
-							<Text style={Styles.generateCoupons}>Gerar cupom</Text>
-							<Text>{chevronRight}</Text>
-						</View>
-					</View>
+						{ponto.opcaoPontos.map(item => (
 
+							<View style={{ flexDirection: 'row', alignItems: 'center' }}>
+								<View style={Styles.containerLine}>
+									<Text style={Styles.items}>{item.qtdPontos}</Text>
+									<Text style={Styles.items}>{item.totalDesconto}%</Text>
+								</View>
 
+								<View style={Styles.containerGenerateCoupons}>
+									<Text style={Styles.generateCoupons}>Gerar cupom</Text>
+									<Text>{chevronRight}</Text>
+								</View>
+							</View>
 
-				</CollapseBody>
+						))}
 
-			</Collapse>
+					</CollapseBody>
+
+				</Collapse>
+
+			))}
+
 		</View>
-
 	);
 }
 
