@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
         width: '90%',
         height: 225,
         marginTop: '5%',
-        marginBottom: '5%',
+        marginBottom: '8%',
         borderWidth: 1,
         borderColor: "#F7F6EE",
         borderRadius: 15,
@@ -35,7 +35,7 @@ export const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     itemsTitle: {
-        fontSize: 20,
+        fontSize: 18,
         color: '#BEBCBC',
         fontWeight: 'bold'
     },
@@ -65,7 +65,7 @@ export const styles = StyleSheet.create({
     items: {
         color: '#F2A950',
         fontWeight: 'bold',
-        fontSize: 20,
+        fontSize: 18,
     },
 })
 

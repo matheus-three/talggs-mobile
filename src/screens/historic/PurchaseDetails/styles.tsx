@@ -61,8 +61,8 @@ export const styles = StyleSheet.create({
         marginTop: 8,
     },
     button: {
-        width: '45%',
-        height: 60,
+        width: '55%',
+        height: 50,
         borderRadius: 50,
         alignItems: 'center',
         justifyContent: 'center',
@@ -74,7 +74,7 @@ export const styles = StyleSheet.create({
     buttonText: {
         color: '#F7F6EE',
         fontWeight: 'bold',
-        fontSize: 20,
+        fontSize: 18,
     },
     productTitle: {
         fontSize: 16,
@@ -99,6 +99,7 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginTop: 10,
+        marginBottom: 15,
         flexWrap: 'wrap',
     },
     extra: {

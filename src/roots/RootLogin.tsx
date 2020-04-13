@@ -28,9 +28,9 @@ function RootLogin() {
 					  height: 120,
 					},
 					headerTitleStyle: {
-					  color: 'white',
+					  color: '#F7F6EE',
 					},
-					headerTintColor:'white',
+					headerTintColor:'#F7F6EE',
 				  }} 
 			/>
 		</Stack.Navigator>
