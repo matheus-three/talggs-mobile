@@ -8,13 +8,11 @@ export const styles = StyleSheet.create({
       height: '100%',
       width: '100%',
     },
-
     text: {
         marginTop: 30,
         color: '#f2a950', 
         fontSize: 12,
     },
-
     input: {
         width: '80%', 
         marginBottom: 33,

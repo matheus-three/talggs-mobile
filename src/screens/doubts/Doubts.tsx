@@ -8,7 +8,7 @@ import {
 	CollapseBody,
 } from 'accordion-collapse-react-native'
 
-import Styles from './style'
+import Styles from './styles'
 
 export const Doubts =  () => {
 	const [collapsed, setCollapsed] = useState(false)
@@ -36,24 +36,23 @@ export const Doubts =  () => {
 					solucao: 'Te garante descontos',
 				},
 			],
-    },
-    {
+   		 },
+    	{
 			titulo: 'Como envio minha dúvida aqui?',
 			descricao: [
 				{
 					solucao: 'Entre no site Tallgs: link',
 				},
 			],
-    },
-    {
+    	},
+    	{
 			titulo: 'Como uso meus Cupons?',
 			descricao: [
 				{
 					solucao: 'Não usa, emmmn zuera',
 				},
 			],
-    },
-
+    	},
 	]
 
 	const chevronRight = <Icon name="chevron-down" size={25} color="#2D4F6C" />
@@ -81,6 +80,7 @@ export const Doubts =  () => {
 					</Collapse>
 				))}
 			</View>
+			<View style={{marginBottom: 30}}></View>
 		</ScrollView>
   )
 }

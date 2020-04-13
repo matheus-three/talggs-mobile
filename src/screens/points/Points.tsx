@@ -9,7 +9,7 @@ import {
 	CollapseBody,
 } from 'accordion-collapse-react-native'
 
-import Styles from './styles'
+import Style from './styles'
 
 export const Points = () => {
 	const [collapsed, setCollapsed] = useState(false)
@@ -35,7 +35,7 @@ export const Points = () => {
 		},
 		{
 			titulo: 'Americanas',
-			total: 31,
+			total: 30,
 			opcaoPontos: [
 				{
 					qtdPontos: 100,
@@ -61,38 +61,38 @@ export const Points = () => {
 		},
 	]
 
-	const chevronRight = <Icon name="chevron-down" size={25} color="#2D4F6C" />
+	const chevronRight = <Icon name="chevron-down" size={25} color="#232F40" />
 	const star = <Ionicons name="md-star-outline" size={30} color="#f2a950" />
 
 	return (
-		<ScrollView style={Styles.scrollContainer}>
-			<View style={Styles.container}>
+		<ScrollView style={Style.scrollContainer}>
+			<View style={Style.container}>
 				{pontos.map(ponto => (
 
-					<Collapse style={Styles.couponContainer}>
+					<Collapse style={Style.couponContainer}>
 
-						<CollapseHeader style={Styles.header}>
-							<Text style={Styles.chevronRight}>{chevronRight}</Text>
-							<Text style={Styles.title}>{ponto.titulo}</Text>
-							<Text style={Styles.points}> {ponto.total}{star}</Text>
+						<CollapseHeader style={Style.header}>
+							<Text style={Style.chevronRight}>{chevronRight}</Text>
+							<Text style={Style.title}>{ponto.titulo}</Text>
+							<Text style={Style.points}>{ponto.total}{star}</Text>
 						</CollapseHeader>
 
 						<CollapseBody>
-							<View style={Styles.containerLine}>
-								<Text style={Styles.label}>Pontos</Text>
-								<Text style={Styles.label}>Desconto</Text>
+							<View style={Style.containerLine}>
+								<Text style={Style.label}>Pontos</Text>
+								<Text style={Style.label}>Desconto</Text>
 							</View>
 
 							{ponto.opcaoPontos.map(item => (
 
-								<View style={Styles.containerItems}>
-									<View style={Styles.containerLine}>
-										<Text style={Styles.items}>{item.qtdPontos}</Text>
-										<Text style={Styles.items}>{item.totalDesconto}%</Text>
+								<View style={Style.containerItems}>
+									<View style={Style.containerLine}>
+										<Text style={Style.items}>{item.qtdPontos}</Text>
+										<Text style={Style.items}>{item.totalDesconto}%</Text>
 									</View>
 
-									<View style={Styles.containerGenerateCoupons}>
-										<Text style={Styles.generateCoupons}>Gerar cupom</Text>
+									<View style={Style.containerGenerateCoupons}>		
+										<Text style={Style.generateCoupons}>Gerar cupom</Text>
 										<Text>{chevronRight}</Text>
 									</View>
 								</View>
@@ -101,6 +101,7 @@ export const Points = () => {
 
 					</Collapse>
 				))}
+				<View style={{marginBottom: 35}}></View>
 			</View>
 		</ScrollView>
 	);

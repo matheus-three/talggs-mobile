@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, Alert} from 'react-native';
 import Icon from 'react-native-vector-icons/Feather'
 import { AuthContext } from '../../Context'
 
-import Styles from './style';
+import Styles from './styles';
 const chevronRight = <Icon name="chevron-right" size={25} color="#2D4F6C" />
 
 const Perfil = ({ navigation }) => {

@@ -2,7 +2,7 @@ import React,  { useState } from 'react';
 import { View, TextInput, Text, Platform, ScrollView, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import { Dropdown } from 'react-native-material-dropdown';
 
-import Style from './style';
+import Styles from './styles';
 
 const PerfilEdit = () => {
 	//dados que virão por uma API
@@ -30,46 +30,46 @@ const PerfilEdit = () => {
 	return (
         <KeyboardAvoidingView
             behavior={Platform.OS == "ios" ? "padding" : "height"}
-            style={Style.container}
+            style={Styles.container}
         > 
     
         <ScrollView>
             <View style={{alignItems: 'center', marginTop: 20}}>
-                <Text style={Style.labelTitle}>Nome Completo:</Text>
-                <TextInput placeholder="Nome Completo" value={name} style={Style.input}/>
+                <Text style={Styles.labelTitle}>Nome Completo:</Text>
+                <TextInput placeholder="Nome Completo" value={name} style={Styles.input}/>
 
-                <Text style={Style.labelTitle}>CPF:</Text>
-                <TextInput value={cpf} editable={false} style={[Style.input, Style.block]}/>
+                <Text style={Styles.labelTitle}>CPF:</Text>
+                <TextInput value={cpf} editable={false} style={[Styles.input, Styles.block]}/>
 
-                <Text style={Style.labelTitle}>Sexo:</Text>
-                <TextInput value={gender} editable={false} style={[Style.input, Style.block]}/>
+                <Text style={Styles.labelTitle}>Sexo:</Text>
+                <TextInput value={gender} editable={false} style={[Styles.input, Styles.block]}/>
 
-                <Text style={Style.labelTitle}>E-mail:</Text>
-                <TextInput placeholder="E-mail" value={email} style={Style.input}/>
+                <Text style={Styles.labelTitle}>E-mail:</Text>
+                <TextInput placeholder="E-mail" value={email} style={Styles.input}/>
 
-                <Text style={Style.labelTitle}>Data de Nascimento:</Text>
-                <TextInput value={birthDate} editable={false} style={[Style.input, Style.block]}/>       
+                <Text style={Styles.labelTitle}>Data de Nascimento:</Text>
+                <TextInput value={birthDate} editable={false} style={[Styles.input, Styles.block]}/>       
 
-                <Text style={Style.labelTitle}>Endereço:</Text>
+                <Text style={Styles.labelTitle}>Endereço:</Text>
 
-                <View style={Style.doubleTitle}>
-                    <Text style={Style.labelTitleAddress}>CEP</Text>
-                    <Text style={[Style.labelTitleAddress, Style.number]}>Nº</Text>
+                <View style={Styles.doubleTitle}>
+                    <Text style={Styles.labelTitleAddress}>CEP</Text>
+                    <Text style={[Styles.labelTitleAddress, Styles.number]}>Nº</Text>
                 </View> 
-                <View style={Style.row}>
-                    <TextInput placeholder="CEP" value={cep} style={[Style.input, Style.halfLg]}/>
-                    <TextInput placeholder="Nº" value={number} style={[Style.input, Style.halfSm]}/>
+                <View style={Styles.row}>
+                    <TextInput placeholder="CEP" value={cep} style={[Styles.input, Styles.halfLg]}/>
+                    <TextInput placeholder="Nº" value={number} style={[Styles.input, Styles.halfSm]}/>
                 </View>
 
-                <Text style={Style.labelTitleAddress}>RUA</Text>
-                <TextInput placeholder="Rua" value={street} style={Style.input}/>
+                <Text style={Styles.labelTitleAddress}>RUA</Text>
+                <TextInput placeholder="Rua" value={street} style={Styles.input}/>
 
-                <Text style={Style.labelTitleAddress}>BAIRRO</Text>
-                <TextInput placeholder="Bairro" value={neighborhood} style={Style.input}/>
+                <Text style={Styles.labelTitleAddress}>BAIRRO</Text>
+                <TextInput placeholder="Bairro" value={neighborhood} style={Styles.input}/>
         
-                <Text style={[Style.labelTitleAddress, Style.city]}>CIDADE</Text>
-                <View style={Style.row}>
-                    <TextInput placeholder="Cidade" value={city} style={[Style.input, Style.halfLg, Style.cityHeight]}/>
+                <Text style={[Styles.labelTitleAddress, Styles.city]}>CIDADE</Text>
+                <View style={Styles.row}>
+                    <TextInput placeholder="Cidade" value={city} style={[Styles.input, Styles.halfLg, Styles.cityHeight]}/>
                     <Dropdown
                         containerStyle={{ width: '20%', height: 80, marginLeft: 10, marginTop: -15,  top: -2}}
                         style={{color: "#F7F6EE"}}
@@ -83,13 +83,13 @@ const PerfilEdit = () => {
                     />
                 </View>
 
-                <View style={[Style.row, Style.buttonContainer]}>
-                    <TouchableOpacity style={Style.button}>
-                        <Text style={Style.button_text}>CANCELAR</Text>
+                <View style={[Styles.row, Styles.buttonContainer]}>
+                    <TouchableOpacity style={Styles.button}>
+                        <Text style={Styles.button_text}>CANCELAR</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={Style.button}>
-                        <Text style={Style.button_text}>SALVAR</Text>
+                    <TouchableOpacity style={Styles.button}>
+                        <Text style={Styles.button_text}>SALVAR</Text>
                     </TouchableOpacity>
                 </View>
 

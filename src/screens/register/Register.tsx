@@ -4,7 +4,7 @@ import { Dropdown } from 'react-native-material-dropdown';
 import DatePicker from 'react-native-datepicker';
 import { AuthContext } from '../../Context'
 
-import Style from './style';
+import Style from './styles';
 
 const Register = () => {
 	const [date, setDate] = useState('');

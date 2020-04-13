@@ -91,6 +91,7 @@ const Coupons = () => {
                         </>
                     ))}
                 </>
+                <View style={{marginBottom: 22}}></View>
             </View>
         </ScrollView>
     )

@@ -7,7 +7,8 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     container: {
-        alignItems: 'center'
+        alignItems: 'center',
+        height: '90%',
     },
     couponContainer: {
         width:'90%',
@@ -52,7 +53,6 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     items: {
-        marginLeft: '5%',
         width: '60%',
         fontSize: 16,
         color: '#2D4F6C'

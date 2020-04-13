@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
       flex: 0, 
       height: '100%',
     },
-
     labelTitle: {
         fontSize: 14,
         color: '#F2C894',
@@ -16,7 +15,6 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginBottom: 10,
     },
-
     labelTitleAddress: {
         flexDirection: "column",
         alignSelf: 'flex-start',
@@ -25,11 +23,9 @@ const styles = StyleSheet.create({
         marginLeft: 41,
         marginBottom: 5,
     },
-
     block: {
         color: '#696A6C',
     },
-
     input: {
         width: '80%', 
         marginBottom: 23,
@@ -38,42 +34,32 @@ const styles = StyleSheet.create({
         borderBottomWidth: 0.5,
         marginLeft: 10,
     },
-
     row: {
         flexDirection: "row",
     },
-
     doubleTitle: {
         flexDirection: "row",
         alignSelf: "flex-start",
     },
-
     number: {
         marginLeft: "53%",
     },
-
     city: {
         marginBottom: -12,
     },
-
     cityHeight: {
         marginTop: 7,
         height: 35,
     },
-
     halfLg: {
         width: '57%',
     },
-
     halfSm: {
         width: '20%',
     },
-
-    
     buttonContainer: {
         justifyContent: 'space-around',
     },
-
     button: {
         width: '40%',
         height: 60,
@@ -86,7 +72,6 @@ const styles = StyleSheet.create({
         marginLeft: 12,
         marginRight: 12,
     },
-
     button_text: {
         color: '#F7F6EE',
         fontWeight: 'bold',
