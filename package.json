@@ -22,7 +22,6 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
     "react-native-datepicker": "^1.7.2",
     "react-native-drop-down-item": "^1.1.0",
-    "react-native-exit-app": "^1.1.0",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-gradient-buttons": "^2.0.1",
     "react-native-indicators": "^0.17.0",
