@@ -20,21 +20,24 @@ const styles = StyleSheet.create({
         paddingHorizontal: 24,
         paddingVertical: 13,
     },
+    chevronRight: {
+        padding: 0,
+    },
     header: {
         flexDirection: 'row', 
-        justifyContent: 'space-between', 
         alignItems: 'center' 
     },
     title: {
         color: '#232F40',
         fontSize: 20,
         fontWeight: 'bold',
-        
+        marginLeft: '10%',
     },
     points: {
         color: '#F2A950',
         fontWeight: 'bold',
         fontSize: 25,
+        marginLeft: '20%',
     },
     label: {
         width: '60%',

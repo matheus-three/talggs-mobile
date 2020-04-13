@@ -1,8 +1,10 @@
 import React, { useState }  from 'react';
 import { View, Text, TouchableOpacity, Alert} from 'react-native';
+import Icon from 'react-native-vector-icons/Feather'
 import { AuthContext } from '../../Context'
 
-import Style from './style';
+import Styles from './style';
+const chevronRight = <Icon name="chevron-right" size={25} color="#2D4F6C" />
 
 const Perfil = ({ navigation }) => {
 	//dados que virão por uma API
@@ -26,17 +28,20 @@ const Perfil = ({ navigation }) => {
 	}
 
 	return (
-		<View style={Style.container}>
-			<View style={Style.buttonContainer}>
-                <TouchableOpacity style={Style.button} onPress={() => navigation.navigate('PerfilEdit')}>
-                    <Text style={Style.button_text}>Editar Perfil</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={Style.button}  onPress= {confirmAlert} >
-                    <Text style={Style.button_text}>Logoff</Text>
+		<View style={Styles.container}>
+			<View style={Styles.buttonContainer}>
+                <TouchableOpacity style={Styles.header} onPress={() => navigation.navigate('PerfilEdit')}>
+                    <Text style={Styles.title}>Editar Perfil</Text>
+					<Text>{chevronRight}</Text>
                 </TouchableOpacity>
             </View>
+			<View style={Styles.buttonContainer}>
+				<TouchableOpacity style={Styles.header}  onPress= {confirmAlert} >
+                    <Text style={Styles.title}>Logoff</Text>
+					<Text>{chevronRight}</Text>
+                </TouchableOpacity>
+			</View>
 		</View>
 	);
 }
 export default Perfil
-

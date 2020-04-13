@@ -7,7 +7,7 @@ import RootCoupons from './RootCoupons';
 import RootPoints from './RootPoints'
 import RootHistoric from './RootHistoric'
 import RootPerfil from './RootPerfil'
-import RootClose from './RootClose'
+import RootDoubts from './RootDoubts'
 
 const Tab = createBottomTabNavigator();
 	const RootTabMenu = () => {
@@ -43,7 +43,7 @@ const Tab = createBottomTabNavigator();
 				component={RootPoints} 
 				options={{
 					tabBarIcon: ({ color, size }) => (
-						<Ionicons name={'md-star-outline'} size={size} color={color} />
+						<Ionicons name={'ios-star'} size={size} color={color} />
 					)
 				}}
 			/>
@@ -96,11 +96,11 @@ const Tab = createBottomTabNavigator();
 				
 			/>
 			<Tab.Screen 
-				name="Fechar" 
-				component={RootClose} 
+				name="Dúvidas" 
+				component={RootDoubts} 
 				options={{
 					tabBarIcon: ({ color, size }) =>  (
-						<Ionicons name={'md-exit'} size={size} color={color} />
+						<Ionicons name={'md-help-circle'} size={size} color={color} />
 					)
 				}}
 			/>
