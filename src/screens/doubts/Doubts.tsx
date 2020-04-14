@@ -10,7 +10,7 @@ import {
 
 import Styles from './styles'
 
-export const Doubts =  () => {
+export const Doubts = () => {
 	const [collapsed, setCollapsed] = useState(false)
 	const doubts = [
 		{
@@ -36,23 +36,23 @@ export const Doubts =  () => {
 					solucao: 'Te garante descontos',
 				},
 			],
-   		 },
-    	{
+		},
+		{
 			titulo: 'Como envio minha dúvida aqui?',
 			descricao: [
 				{
 					solucao: 'Entre no site Tallgs: link',
 				},
 			],
-    	},
-    	{
+		},
+		{
 			titulo: 'Como uso meus Cupons?',
 			descricao: [
 				{
 					solucao: 'Não usa, emmmn zuera',
 				},
 			],
-    	},
+		},
 	]
 
 	const chevronRight = <Icon name="chevron-down" size={25} color="#2D4F6C" />
@@ -65,24 +65,24 @@ export const Doubts =  () => {
 					<Collapse style={Styles.doubtContainer}>
 						<CollapseHeader style={Styles.header}>
 							<Text style={Styles.title}>{ponto.titulo}</Text>
-              <Text>{chevronRight}</Text>
+							<Text>{chevronRight}</Text>
 						</CollapseHeader>
 
 						<CollapseBody>
-              {ponto.descricao.map(item => (
-                <View>
-                  <View>
-                    <Text style={Styles.solution}>{item.solucao}</Text>
-                  </View>
-                </View>
-                ))}
+							{ponto.descricao.map(item => (
+								<View>
+									<View>
+										<Text style={Styles.solution}>{item.solucao}</Text>
+									</View>
+								</View>
+							))}
 						</CollapseBody>
 					</Collapse>
 				))}
 			</View>
-			<View style={{marginBottom: 30}}></View>
+			<View style={{ marginBottom: 30 }}></View>
 		</ScrollView>
-  )
+	)
 }
 
 export default Doubts

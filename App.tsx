@@ -8,7 +8,7 @@ import RootTabMenu from './src/roots/RootTabMenu'
 import { AuthContext }  from './src/Context'
 
 export default () => {
-  const [isLoading, setIsLoading] = React.useState(true);
+  const [isLoading, setIsLoading] = React.useState(false);
   const [userToken, setUserToken] = React.useState(null); //se por um nome, iniciará para o home, se por null vai para tela login
 
   const authContext = React.useMemo(() => {
