@@ -32,9 +32,6 @@ const Register = () => {
 		<ScrollView>
 			<View style={{alignItems: 'center'}}>
 				<TextInput placeholder="Nome Completo" style={Style.input}/>
-				<TextInput placeholder="E-mail" style={Style.input}/>
-				<TextInput placeholder="Senha" secureTextEntry style={Style.input}/>
-				<TextInput placeholder="Confirme sua senha" secureTextEntry style={Style.input}/> 
 				<TextInput placeholder="CPF" style={Style.input}/>
 
 				<Dropdown
@@ -48,7 +45,7 @@ const Register = () => {
 					data={sexo}
 				/>
 
-				<Text style={Style.birthTitle}>Data de Nascimento:</Text>
+				<Text style={Style.birthTitle}>Data de Nascimento</Text>
 				<View style={[Style.birthDate, Style.row]}>
 					<DatePicker
 						format="DD/MM/YYYY"
@@ -71,7 +68,7 @@ const Register = () => {
 					<Text style={Style.birthDate_date}>{date}</Text>
 				</View>         
 
-				<Text style={Style.addressTitle}>Endereço:</Text>
+				<Text style={Style.addressTitle}>Endereço</Text>
 
 				<View style={Style.row}>
 					<TextInput placeholder="CEP" style={[Style.input, Style.halfLg]}/>
@@ -93,6 +90,11 @@ const Register = () => {
 						data={uf}
 					/>
 				</View>
+
+				<Text style={Style.addressTitle}>Login</Text>
+				<TextInput placeholder="E-mail" style={Style.input}/>
+				<TextInput placeholder="Senha" secureTextEntry style={Style.input}/>
+				<TextInput placeholder="Confirme sua senha" secureTextEntry style={Style.input}/> 
 
 				<TouchableOpacity style={Style.button} onPress={() => signUp()}>
 					<Text style={Style.button_text}>CADASTRAR-SE</Text>

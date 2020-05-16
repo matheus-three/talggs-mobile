@@ -44,9 +44,6 @@ const PerfilEdit = () => {
                 <Text style={Styles.labelTitle}>Sexo:</Text>
                 <TextInput value={gender} editable={false} style={[Styles.input, Styles.block]}/>
 
-                <Text style={Styles.labelTitle}>E-mail:</Text>
-                <TextInput placeholder="E-mail" value={email} style={Styles.input}/>
-
                 <Text style={Styles.labelTitle}>Data de Nascimento:</Text>
                 <TextInput value={birthDate} editable={false} style={[Styles.input, Styles.block]}/>       
 
@@ -82,6 +79,9 @@ const PerfilEdit = () => {
                         data={uf}
                     />
                 </View>
+
+                <Text style={Styles.labelTitle}>E-mail:</Text>
+                <TextInput placeholder="E-mail" value={email} style={Styles.input}/>
 
                 <View style={[Styles.row, Styles.buttonContainer]}>
                     <TouchableOpacity style={Styles.button}>

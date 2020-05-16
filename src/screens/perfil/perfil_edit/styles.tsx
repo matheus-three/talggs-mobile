@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
         color: '#F2C894',
         alignSelf: 'flex-start',
         marginLeft: 41,
-        marginTop: 10,
+        marginTop: 5,
         marginBottom: 10,
     },
     labelTitleAddress: {

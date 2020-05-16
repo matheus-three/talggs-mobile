@@ -37,13 +37,14 @@ const styles = StyleSheet.create({
     birthTitle: {
         fontSize: 16,
         color: '#F2C894',
-        marginRight: 66,
+        marginRight: '35%',
     },
     birthDate: {
         alignItems: "center",
-        marginBottom: 33,
+        marginBottom: 10,
         justifyContent: "center",
-        marginLeft: 86,
+        marginRight: "20%",
+        marginTop: 20,
         borderBottomColor: '#F7F6EE',
         borderBottomWidth: 0.5,
     },
@@ -55,7 +56,8 @@ const styles = StyleSheet.create({
     addressTitle: {
         fontSize: 16,
         color: '#F2C894',
-        marginRight: 140,
+       
+        marginTop: 50,
     },
     birthDate_date: {
         color: '#F7F6EE',
