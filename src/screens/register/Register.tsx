@@ -1,4 +1,4 @@
-import React,  { useState } from 'react';
+import React,  { useState, useEffect } from 'react';
 import { Button, View, TextInput, Text, Platform, ScrollView, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import { Dropdown } from 'react-native-material-dropdown';
 import DatePicker from 'react-native-datepicker';
@@ -9,33 +9,38 @@ import { TextInputMask } from 'react-native-masked-text';
 import Style from './styles';
 
 const Register = () => {
-	const uf = [
+    const { signUp } = React.useContext(AuthContext);
+    
+    const uf = [
 		{value: 'AC'}, {value: 'AL'}, {value: 'AP'}, {value: 'AM'}, {value: 'BA'}, {value: 'CE'}, {value: 'DF'}, {value: 'ES'}, {value: 'GO'}, {value: 'MA'}, {value: 'MT'}, {value: 'MS'}, {value: 'MG'}, {value: 'PA'}, {value: 'PB'}, {value: 'PR'}, {value: 'PE'}, {value: 'PI'}, {value: 'RJ'}, {value: 'RN'}, {value: 'RS'}, {value: 'RO'}, {value: 'RR'}, {value:'SC'},{value: 'SP'}, {value: 'SE'}, {value: 'TO'}
 	];
 
-	const changeDate = value => {
-		setDate(value);
-	}
-
-	const { signUp } = React.useContext(AuthContext);
-
-
-    //validacoes 2
+    const optionsGender = [
+        { text: 'Feminino', value: 1 },
+        { text: 'Masculino', value: 2 },
+    ];
+    
     const [name, setName] = useState("");
     const [validName, setValidName] = useState(true);
-    const gender = [{ value: "Feminino" }, { value: "Masculino" }];
+    const genderData = [{ value: "Feminino" }, { value: "Masculino" }];
+    const [gender, setGender] = useState("");
     const [validGender, setValidGender] = useState(true);
-    const [date, setDate] = useState("");
+    const [birthDate, setBirthDate] = useState("");
+    const [validBirthDate, setValidBirthDate] = useState(true);
     const [Cpf, setCpf] = useState("");
     const [validCpf, setValidCpf] = useState(true);
     const [Cep, setCep] = useState("");
     const [validCep, setValidCep] = useState(true);
     const [Logradouro, setLogradouro] = useState("");
-    const [Numero, setNumber] = useState("");
-    const [Complemento, setComplemento] = useState("");
-    const [Uf, setUf] = useState("");
     const [Cidade, setCidade] = useState("");
     const [Bairro, setBairro] = useState("");
+    const [number, setNumber] = useState("");
+    const [Uf, setUf] = useState("");
+    const [validNumber, setValidNumber] = useState(true);
+    const [email, setEmail] = useState("");
+    const [validEmail, setValidEmail] = useState(true);
+    const [password, setPassword] = useState("");
+    const [validPassword, setValidPassword] = useState(true);
 
     const validateName = () => {
         const pattern = /^[a-zA-Z]{2,40}( [a-zA-Z]{2,40})+$/;
@@ -90,9 +95,22 @@ const Register = () => {
     };
 
     const validateGender = () => {
-      
+      if (gender === "") return false
+
+      return true
     };
 
+    const validateBirthDate = () => {
+      if (birthDate === "") return false
+
+      return true
+    };
+
+    const validateNumber = () => {
+        if (number === "") return false;
+
+        return true
+    };
 
     const getCep = async () => {
         try {
@@ -113,7 +131,9 @@ const Register = () => {
     }
 
     const validaCep = () => {
-        if (Cep != "") {
+        if (Cep == "") 
+            return setValidCep(false)
+        else {
             const validar = /^[0-9]{5}-[0-9]{3}$/;
 
             if (validar.test(Cep)) {
@@ -121,10 +141,41 @@ const Register = () => {
                 setValidCep(true);
             } else setValidCep(false);
         }
+
+        return true
+    };
+
+    const validaEmail = () => {
+        const validar = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+        if (email === "") return false;
+        
+        if (validar.test(email) === false) return false;
+
+        return true
+    }
+
+    const validaPassword = () => {
+        if (password === "" && password.length <= 6)  return false
+
+        return true
     };
 
 
+    const [disabled, setDisabled] = useState(false);
 
+    const validSubmit = () => {
+        //if(disabled === true)
+        if(!validName === true)
+            signUp()
+        else
+            setValidName(false)
+    }
+
+    useEffect(() => {
+        if (validName === true)
+            alert("oi")
+    }, [name]);
 
 
 	return (
@@ -142,7 +193,7 @@ const Register = () => {
                     style={Style.input}
                     onBlur={() => setValidName(validateName())}
                 />
-                {!validName ? <Text style={{ fontSize: 10, color: "red" }}>Você deve inserir o seu Nome Completo</Text> : null}
+                {!validName ? <Text style={Style.error}>Você deve inserir o seu Nome Completo</Text> : null}
 
                 <TextInputMask
                     placeholder="CPF"
@@ -152,7 +203,7 @@ const Register = () => {
                     style={Style.input}
                     onBlur={() => setValidCpf(validateCpf())}
                 />
-                {!validCpf ? <Text style={{ fontSize: 10, color: "red" }}>Você deve inserir um CPF válido</Text> : null}
+                {!validCpf ? <Text style={Style.error}>Você deve inserir um CPF válido</Text> : null}
 
 				<Dropdown
 					containerStyle={{ width: '80%', height: 90, marginLeft: 10}}
@@ -162,10 +213,11 @@ const Register = () => {
 					fontSize={14}
 					dropdownPosition={-3}
                     label='Sexo'
-                    data={gender}
-                    value="Feminino"
+                    onChangeText={(value) => setGender(value)}
+                    onBlur={() => setValidGender(validateGender())}
+                    data={genderData}
 				/>
-                {!gender ? <Text style={{ fontSize: 10, color: "red"}}>Escolha um Sexo</Text> : null}
+                {!validGender ? <Text style={[Style.error, Style.errorGender]}>Escolha um Sexo</Text> : null}
 
 
 				<Text style={Style.birthTitle}>Data de Nascimento</Text>
@@ -173,7 +225,7 @@ const Register = () => {
 					<DatePicker
 						format="DD/MM/YYYY"
 						style={Style.birthDate_component}
-						date={date}
+						value={birthDate}
 						customStyles={{
 						dateIcon: {
 						position: 'absolute',
@@ -185,23 +237,59 @@ const Register = () => {
 						dateInput: {
 						display: "none",
 						}
-						}}
-						onDateChange={changeDate}
+                        }}
+                        onChangeText={(value) => setBirthDate(value)}
+                        onBlur={() => setValidBirthDate(validateBirthDate())}
+						data={birthDate}
 					/>
-					<Text style={Style.birthDate_date}>{date}</Text>
+					<TextInput style={Style.birthDate_date}>{birthDate}</TextInput>
 				</View>         
+                {!validBirthDate ? <Text style={Style.error}>Escolha a Data de Nascimento</Text> : null}
 
 				<Text style={Style.addressTitle}>Endereço</Text>
-
+                           
 				<View style={Style.row}>
-					<TextInput placeholder="CEP" style={[Style.input, Style.halfLg]}/>
-					<TextInput placeholder="Nº" style={[Style.input, Style.halfSm]}/>
+                    <TextInputMask
+                        placeholder={"CEP"}
+                        type={"zip-code"}
+                        value={Cep}
+                        onChangeText={(value) => setCep(value)}
+                        style={[Style.input, Style.halfLg]}
+                        onBlur={validaCep}
+                    />
+
+                    {!validCep ? <Text style={[Style.error, Style.errorCep]}>Você deve inserir um CEP válido</Text> : null}    
+
+
+                    <TextInput
+                        placeholder="Nº" 
+                        value={number}
+                        onChangeText={(value) => setNumber(value)}
+                        style={[Style.input, Style.halfSm]}
+                        onBlur={() => setValidNumber(validateNumber())}
+                    />
+                    {!validNumber ? <Text style={[Style.error, Style.errorNumber]}>Insira o Número</Text> : null}
+
 				</View>
-				<TextInput placeholder="Rua" style={Style.input}/>
-				<TextInput placeholder="Bairro" style={Style.input}/>
+
+                <TextInput 
+                    placeholder="Rua" 
+                    style={Style.input}
+                    value={Logradouro}
+                />
+                <TextInput 
+                    placeholder="Bairro" 
+                    style={Style.input}
+                    value={Bairro}
+                />
 
 				<View style={Style.row}>
-					<TextInput placeholder="Cidade" style={[Style.input, Style.halfLg]}/>
+                    <TextInput 
+                        placeholder="Cidade" 
+                        style={[Style.input, Style.halfLg]}
+                        value={Cidade}
+                    />
+
 					<Dropdown
 						containerStyle={{ width: '20%', height: 80, marginLeft: 10, marginTop: -15,  top: 21}}
 						style={{color: "#F7F6EE"}}
@@ -210,16 +298,32 @@ const Register = () => {
 						dropdownPosition={4}
 						fontSize={14}
 						label='UF'
-						data={uf}
+                        data={uf}
+                        value={Uf}
 					/>
 				</View>
 
 				<Text style={Style.addressTitle}>Login</Text>
-				<TextInput placeholder="E-mail" style={Style.input}/>
-				<TextInput placeholder="Senha" secureTextEntry style={Style.input}/>
-				<TextInput placeholder="Confirme sua senha" secureTextEntry style={Style.input}/> 
+                <TextInput 
+                    placeholder="E-mail" 
+                    value={email}
+                    onChangeText={(value) => setEmail(value)}
+                    style={Style.input}
+                    onBlur={() => setValidEmail(validaEmail())}
+                />
+                  {!validEmail ? <Text style={Style.error}>Você deve inserir um E-mail válido</Text> : null}
+			
+                <TextInput
+                        placeholder="Senha" 
+                        secureTextEntry
+                        value={password}
+                        onChangeText={(value) => setPassword(value)}
+                        style={Style.input}
+                        onBlur={() => setValidPassword(validaPassword())}
+                    />
+                    {!validPassword ? <Text style={Style.error}>Você deve inserir uma Senha com mais de 5 digítos</Text> : null}
 
-				<TouchableOpacity style={Style.button} onPress={() => signUp()}>
+				<TouchableOpacity style={Style.button} onPress={() => validSubmit()}>
 					<Text style={Style.button_text}>CADASTRAR-SE</Text>
 				</TouchableOpacity>
 			</View>  

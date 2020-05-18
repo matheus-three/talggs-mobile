@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: '#F2C894',
         marginRight: '35%',
+        marginTop: 20,
     },
     birthDate: {
         alignItems: "center",
@@ -91,6 +92,25 @@ const styles = StyleSheet.create({
     halfSm: {
         width: '20%',
     },
+    error: {
+        fontSize: 10, 
+        color: "#E52A2A",
+    },
+    errorGender: {
+        marginTop: -30 
+    },
+    errorCep: {
+        position: "absolute", 
+        zIndex: 5, 
+        marginVertical: 53, 
+        marginLeft: 40,
+    },
+    errorNumber: {
+        position: "absolute", 
+        zIndex: 5, 
+        marginVertical: 53, 
+        marginLeft: 225,
+    }
 });
 
 
