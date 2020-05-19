@@ -33,40 +33,11 @@ const styles = StyleSheet.create({
         borderBottomColor: '#F7F6EE',
         borderBottomWidth: 0.5,
         marginLeft: 10,
-    },
-    birthTitle: {
-        fontSize: 16,
-        color: '#F2C894',
-        marginRight: '35%',
-        marginTop: 20,
-    },
-    birthDate: {
-        alignItems: "center",
-        marginBottom: 10,
-        justifyContent: "center",
-        marginRight: "20%",
-        marginTop: 20,
-        borderBottomColor: '#F7F6EE',
-        borderBottomWidth: 0.5,
-    },
-    birthDate_component: {
-        color: '#F7F6EE',
-        width: 100,
-        height: 50,
-    },
+    },    
     addressTitle: {
         fontSize: 16,
         color: '#F2C894',
-       
         marginTop: 50,
-    },
-    birthDate_date: {
-        color: '#F7F6EE',
-        fontSize: 16,
-        width: 100,
-    },
-    sexo: {
-        width: 200,
     },
     button: {
         width: '70%',
@@ -95,9 +66,6 @@ const styles = StyleSheet.create({
     error: {
         fontSize: 10, 
         color: "#E52A2A",
-    },
-    errorGender: {
-        marginTop: -30 
     },
     errorCep: {
         position: "absolute", 
