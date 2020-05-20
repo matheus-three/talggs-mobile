@@ -77,6 +77,23 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         fontSize: 18,
     },
+    error: {
+        fontSize: 10, 
+        color: "#E52A2A",
+        marginTop: -20,
+    },
+    errorCep: {
+        position: "absolute", 
+        zIndex: 5, 
+        marginTop: 23, 
+        marginLeft: 40,
+    },
+    errorNumber: {
+        position: "absolute", 
+        zIndex: 5, 
+        marginTop: 23, 
+        marginLeft: 225,
+    }
 });
 
 

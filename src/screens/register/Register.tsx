@@ -110,16 +110,6 @@ const Register = () => {
         return true
     };
 
-    const validateNumber = () => {
-        const validar = /^[0-9]$/;
-
-        if (number === "") return false;
-
-        if (!validar.test(number) === false) return false;
-
-        return true
-    };
-
     const validateCep = () => {
         if (Cep == "") 
             return setValidCep(false)
@@ -153,6 +143,15 @@ const Register = () => {
         setBairro(value.bairro);
     }
 
+    const validateNumber = () => {
+        const validar = /^[0-9]$/;
+
+        if (number === "") return false;
+
+        if (!validar.test(number) === false) return false;
+
+        return true
+    };
 
     const validateEmail = () => {
         const validar = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
