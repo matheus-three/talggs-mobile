@@ -152,7 +152,6 @@ const Register = () => {
 
             if (validar.test(Cep)) {
                 getCep();
-                setValidCep(true);
             } else setValidCep(false);
         }
 
@@ -163,6 +162,9 @@ const Register = () => {
         try {
             let call = await fetch(`https://viacep.com.br/ws/${Cep}/json/`);
             let cep = await call.json();
+
+            if (cep.erro) setValidCep(false);
+            else setValidCep(true);
 
             contentCep(cep);
         } catch (err) {
@@ -198,7 +200,7 @@ const Register = () => {
     };
 
     const validatePassword = () => {
-        if (password === "" && password.length <= 6) return false;
+        if (password === "" || password.length < 6) return false;
 
         return true;
     };
@@ -210,13 +212,6 @@ const Register = () => {
         if (!validName === true) signUp();
         else setValidName(false);
     };
-
-    /*
-    useEffect(() => {
-        if (validName === true)
-            alert("oi")
-    }, [name]);
-*/
 
     return (
         <KeyboardAvoidingView

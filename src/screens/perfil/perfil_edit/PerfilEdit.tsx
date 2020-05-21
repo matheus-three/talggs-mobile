@@ -50,7 +50,6 @@ const PerfilEdit = () => {
 
             if (validar.test(Cep)) {
                 getCep();
-                setValidCep(true);
             } else setValidCep(false);
         }
 
@@ -61,6 +60,9 @@ const PerfilEdit = () => {
         try {
             let call = await fetch(`https://viacep.com.br/ws/${Cep}/json/`);
             let cep = await call.json();
+
+            if (cep.erro) setValidCep(false);
+            else setValidCep(true);
 
             contentCep(cep);
         } catch (err) {
@@ -138,7 +140,6 @@ const PerfilEdit = () => {
                 <View style={{ alignItems: "center", marginTop: 20 }}>
                     <Text style={Styles.labelTitle}>Nome Completo:</Text>
                     <TextInput
-                        placeholder="Nome Completo"
                         value={name}
                         onChangeText={(value) => setName(value)}
                         style={Styles.input}
@@ -181,7 +182,6 @@ const PerfilEdit = () => {
                     </View>
                     <View style={Styles.row}>
                         <TextInputMask
-                            placeholder={"CEP"}
                             type={"zip-code"}
                             value={Cep}
                             onChangeText={(value) => setCep(value)}
@@ -195,7 +195,6 @@ const PerfilEdit = () => {
                         ) : null}
 
                         <TextInput
-                            placeholder="Nº"
                             keyboardType="numeric"
                             value={number}
                             onChangeText={(value) => setNumber(value)}
@@ -211,14 +210,12 @@ const PerfilEdit = () => {
 
                     <Text style={Styles.labelTitleAddress}>RUA</Text>
                     <TextInput
-                        placeholder="Rua"
                         style={Styles.input}
                         value={Logradouro}
                     />
 
                     <Text style={Styles.labelTitleAddress}>BAIRRO</Text>
                     <TextInput
-                        placeholder="Bairro"
                         style={Styles.input}
                         value={Bairro}
                     />
@@ -228,7 +225,6 @@ const PerfilEdit = () => {
                     </Text>
                     <View style={Styles.row}>
                         <TextInput
-                            placeholder="Cidade"
                             style={[
                                 Styles.input,
                                 Styles.halfLg,
@@ -257,7 +253,6 @@ const PerfilEdit = () => {
 
                     <Text style={Styles.labelTitle}>E-mail:</Text>
                     <TextInput
-                        placeholder="E-mail"
                         value={email}
                         onChangeText={(value) => setEmail(value)}
                         style={Styles.input}

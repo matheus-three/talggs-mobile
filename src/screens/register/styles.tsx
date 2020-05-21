@@ -70,14 +70,14 @@ const styles = StyleSheet.create({
     errorCep: {
         position: "absolute",
         zIndex: 5,
-        marginVertical: 53,
+        marginVertical: 63,
         marginLeft: 40,
     },
     errorNumber: {
         position: "absolute",
         zIndex: 5,
-        marginVertical: 53,
-        marginLeft: 225,
+        marginVertical: 63,
+        marginLeft: 255,
     },
 });
 
