@@ -1,45 +1,45 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     scrollContainer: {
-        backgroundColor: '#F7F6EE',
-        height: '100%',
-        width: '100%',
+        backgroundColor: "#F7F6EE",
+        height: "100%",
+        width: "100%",
     },
     container: {
-        alignItems: 'center'
+        alignItems: "center",
     },
     doubtContainer: {
-        width:'100%',
-        justifyContent: 'space-between',
-        backgroundColor: '#F7F6EE',
+        width: "100%",
+        justifyContent: "space-between",
+        backgroundColor: "#F7F6EE",
         borderWidth: 0.5,
         borderColor: "#BEBCBC",
         paddingHorizontal: 26,
         paddingVertical: 16,
     },
     header: {
-        flexDirection: 'row', 
-        justifyContent: 'space-between', 
-        alignItems: 'center' 
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
     },
     title: {
-        color: '#232F40D4',
+        color: "#232F40D4",
         fontSize: 18,
-        fontWeight: 'bold',
+        fontWeight: "bold",
     },
     label: {
-        width: '60%',
-        color:'#BEBCBC',
+        width: "60%",
+        color: "#BEBCBC",
         fontSize: 16,
     },
     solution: {
         marginTop: 10,
-        color: '#696A6C',
-    }
+        color: "#696A6C",
+    },
 });
 
-export default styles
+export default styles;
 
 /*
 
