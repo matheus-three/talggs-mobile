@@ -13,9 +13,11 @@ export const styles = StyleSheet.create({
         color: "#f2a950",
         fontSize: 12,
     },
+    inputMargin: {
+        marginBottom: 33,
+    },
     input: {
         width: "80%",
-        marginBottom: 33,
         paddingLeft: 35,
         color: "#F7F6EE",
         borderBottomColor: "#F7F6EE",
@@ -24,7 +26,8 @@ export const styles = StyleSheet.create({
     error: {
         fontSize: 10,
         color: "#E52A2A",
-        // marginTop: -20,
+        marginTop: 5,
+        marginBottom: 33,
     },
 });
 

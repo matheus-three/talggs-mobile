@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { KeyboardAvoidingView, TextInput, Text, Platform } from "react-native";
+import {
+    KeyboardAvoidingView,
+    TextInput,
+    Text,
+    Platform,
+    View,
+} from "react-native";
 import SvgUri from "expo-svg-uri";
 import GradientButton from "react-native-gradient-buttons";
 import { AuthContext } from "../../Context";
@@ -25,7 +31,7 @@ const Login = ({ navigation }) => {
     };
 
     const validatePassword = () => {
-        if (password === "" && password.length <= 6) return false;
+        if (password === "" || password.length < 6) return false;
 
         return true;
     };
@@ -52,7 +58,9 @@ const Login = ({ navigation }) => {
                 <Text style={Styles.error}>
                     Você deve inserir um E-mail válido
                 </Text>
-            ) : null}
+            ) : (
+                <Text style={Styles.inputMargin} />
+            )}
 
             <TextInput
                 placeholder="Senha"
@@ -66,7 +74,9 @@ const Login = ({ navigation }) => {
                 <Text style={Styles.error}>
                     Você deve inserir uma Senha com mais de 5 digítos
                 </Text>
-            ) : null}
+            ) : (
+                <Text style={Styles.inputMargin} />
+            )}
 
             <GradientButton
                 textStyle={{ fontSize: 20, color: "#2D4F6C" }}
