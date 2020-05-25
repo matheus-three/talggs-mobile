@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@firebase/firestore": "^1.14.5",
     "@react-native-community/masked-view": "0.1.5",
     "@react-navigation/bottom-tabs": "^5.2.5",
     "@react-navigation/material-top-tabs": "^5.1.7",
@@ -16,6 +17,7 @@
     "accordion-collapse-react-native": "^0.2.8",
     "expo": "~36.0.0",
     "expo-svg-uri": "^1.1.0",
+    "firebase": "^7.14.5",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
     "react-feather": "^2.0.3",

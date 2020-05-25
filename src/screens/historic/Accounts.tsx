@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Text, View, TouchableOpacity } from "react-native";
 
 import Icon from "react-native-vector-icons/Feather";
@@ -7,7 +7,6 @@ import Styles from "./styles";
 
 export const Accounts = ({ route, navigation }) => {
     const { status } = route.params;
-
     //Status:
     // 0 - pendente
     // 1 - pago

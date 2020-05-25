@@ -40,7 +40,7 @@ const Perfil = ({ navigation }) => {
             </View>
             <View style={Styles.buttonContainer}>
                 <TouchableOpacity style={Styles.header} onPress={confirmAlert}>
-                    <Text style={Styles.title}>Logoff</Text>
+                    <Text style={Styles.title}>Sair</Text>
                     <Text>{chevronRight}</Text>
                 </TouchableOpacity>
             </View>

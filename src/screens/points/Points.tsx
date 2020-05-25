@@ -59,7 +59,8 @@ export const Points = () => {
         },
     ];
 
-    const chevronRight = <Icon name="chevron-down" size={25} color="#232F40" />;
+    const chevronDown = <Icon name="chevron-down" size={25} color="#232F40" />;
+    const chevronRight = <Icon name="chevron-right" size={25} color="#232F40" />;
     const star = <Ionicons name="md-star-outline" size={30} color="#f2a950" />;
 
     return (
@@ -69,7 +70,7 @@ export const Points = () => {
                     <Collapse style={Style.couponContainer}>
                         <CollapseHeader style={Style.header}>
                             <Text style={Style.chevronRight}>
-                                {chevronRight}
+                                {chevronDown}
                             </Text>
                             <Text style={Style.title}>{ponto.titulo}</Text>
                             <Text style={Style.points}>
