@@ -1,36 +1,36 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container: {
-      backgroundColor: '#232F40',
-      width: '100%',
-      flex: 0, 
-      height: '100%',
+        backgroundColor: "#232F40",
+        width: "100%",
+        flex: 0,
+        height: "100%",
     },
     labelTitle: {
         fontSize: 14,
-        color: '#F2C894',
-        alignSelf: 'flex-start',
+        color: "#F2C894",
+        alignSelf: "flex-start",
         marginLeft: 41,
         marginTop: 5,
         marginBottom: 10,
     },
     labelTitleAddress: {
         flexDirection: "column",
-        alignSelf: 'flex-start',
+        alignSelf: "flex-start",
         fontSize: 12,
-        color: '#F7F6EE',
+        color: "#F7F6EE",
         marginLeft: 41,
         marginBottom: 5,
     },
     block: {
-        color: '#696A6C',
+        color: "#696A6C",
     },
     input: {
-        width: '80%', 
+        width: "80%",
         marginBottom: 23,
-        color: '#F7F6EE',
-        borderBottomColor: '#F7F6EE',
+        color: "#F7F6EE",
+        borderBottomColor: "#F7F6EE",
         borderBottomWidth: 0.5,
         marginLeft: 10,
     },
@@ -52,35 +52,48 @@ const styles = StyleSheet.create({
         height: 35,
     },
     halfLg: {
-        width: '57%',
+        width: "57%",
     },
     halfSm: {
-        width: '20%',
+        width: "20%",
     },
     buttonContainer: {
-        justifyContent: 'space-around',
+        justifyContent: "space-around",
     },
     button: {
-        width: '40%',
+        width: "40%",
         height: 60,
         borderRadius: 50,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#f2a950',
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "#f2a950",
         marginBottom: 50,
         marginTop: 30,
         marginLeft: 12,
         marginRight: 12,
     },
     button_text: {
-        color: '#F7F6EE',
-        fontWeight: 'bold',
+        color: "#F7F6EE",
+        fontWeight: "bold",
         fontSize: 18,
+    },
+    error: {
+        fontSize: 10,
+        color: "#E52A2A",
+        marginTop: -20,
+    },
+    errorCep: {
+        position: "absolute",
+        zIndex: 5,
+        marginTop: 30,
+        marginLeft: 40,
+    },
+    errorNumber: {
+        position: "absolute",
+        zIndex: 5,
+        marginTop: 30,
+        marginLeft: 255,
     },
 });
 
-
 export default styles;
-  
-
-  
