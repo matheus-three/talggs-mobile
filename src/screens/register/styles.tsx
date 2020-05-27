@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
         marginTop: 50,
     },
     button_text: {
-        color: "#101D25",
+        color: "#F7F6EE",
         fontWeight: "bold",
         fontSize: 20,
     },

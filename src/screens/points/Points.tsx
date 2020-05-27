@@ -60,8 +60,8 @@ export const Points = () => {
     ];
 
     const chevronDown = <Icon name="chevron-down" size={25} color="#232F40" />;
-    const chevronRight = <Icon name="chevron-right" size={25} color="#232F40" />;
-    const star = <Ionicons name="md-star-outline" size={30} color="#f2a950" />;
+    const chevronRight = <Icon name="chevron-right" size={20} color="#2D4F6C" />;
+    const star = <Ionicons name="md-star-outline" size={25} color="#f2a950" />;
 
     return (
         <ScrollView style={Style.scrollContainer}>

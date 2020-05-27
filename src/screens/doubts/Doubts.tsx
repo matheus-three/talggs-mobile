@@ -17,7 +17,8 @@ export const Doubts = () => {
             titulo: "Esqueci minha senha",
             descricao: [
                 {
-                    solucao: "Lascou-se kkkkkk",
+                    solucao:
+                        "Caso venha esquecer sua senha entre em contato pelo e-mail: suporte@talggs.com.br, solicite uma nova senha e informe seu e-mail de cadastro e CPF. Retornaremos em breve com uma nova senha.",
                 },
             ],
         },
