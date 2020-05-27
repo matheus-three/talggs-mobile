@@ -16,9 +16,7 @@ import firebase from "firebase";
 import "@firebase/firestore";
 
 const Coupons = () => {
-    const [api, setApi] = useState({});
-
-    const cupons = [api];
+    const [cupons, setCupons] = useState([]);
 
     const getCoupons = async () => {
         const dbh = firebase.firestore();
@@ -26,18 +24,15 @@ const Coupons = () => {
         const reportRef = dbh.collection("coupons").doc("iBawftVuFzIKHvDxOb6O");
 
         reportRef.get().then((report) => {
-            console.log("report", report.data());
-
             const data = report.data();
 
-            setApi(data);
+            setCupons(data.coupons);
         });
     };
 
     useEffect(() => {
         getCoupons();
-    })
-
+    });
 
     // const cupons = [
     //     {
