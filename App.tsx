@@ -27,6 +27,9 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+firebase.firestore().settings({ experimentalForceLongPolling: true });
+
+
 export default () => {
     const [isLoading, setIsLoading] = React.useState(true);
     const [userToken, setUserToken] = React.useState(null); //se por um nome, iniciará para o home, se por null vai para tela login

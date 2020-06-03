@@ -4,8 +4,8 @@ import {
     Text,
     TouchableOpacity,
     Clipboard,
-    Alert,
     ScrollView,
+    Alert
 } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
@@ -26,13 +26,15 @@ const Coupons = () => {
         reportRef.get().then((report) => {
             const data = report.data();
 
+            console.log("Data", data);
+
             setCupons(data.coupons);
         });
     };
 
     useEffect(() => {
         getCoupons();
-    });
+    }, []);
 
     // const cupons = [
     //     {
@@ -79,6 +81,7 @@ const Coupons = () => {
 
     const copyToClipboard = (props) => {
         Clipboard.setString(props);
+        Alert.alert('Código copiado!')
     };
 
     return (
