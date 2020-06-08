@@ -7,6 +7,12 @@ import RootTabMenu from "./src/roots/RootTabMenu";
 
 import { AuthContext } from "./src/Context";
 
+import {decode, encode} from 'base-64'
+
+if (!global.btoa) {  global.btoa = encode }
+
+if (!global.atob) { global.atob = decode }
+
 import * as firebase from "firebase";
 
 import "firebase/firestore";
@@ -33,7 +39,9 @@ firebase.firestore().settings({ experimentalForceLongPolling: true });
 export default () => {
     const [isLoading, setIsLoading] = React.useState(true);
     const [userToken, setUserToken] = React.useState(null); //se por um nome, iniciará para o home, se por null vai para tela login
-
+    console.ignoredYellowBox = [
+        'Setting a timer'
+        ];
     console.disableYellowBox = true;
 
     const authContext = React.useMemo(() => {
