@@ -6,12 +6,18 @@ import Points from "../screens/points/Points";
 import Header from "../components/header/Header";
 
 import firebase from "firebase";
+import { useState } from "react";
+import { getActionFromState } from "@react-navigation/native";
 
 const Stack = createStackNavigator();
 function RootPoints() {
     var user = firebase.auth().currentUser;
 
-    const { displayName } = user;
+    const getName = () => {
+        if (user.displayName != null) return user.displayName;
+
+        return "";
+    };
 
     return (
         <Stack.Navigator>
@@ -29,7 +35,7 @@ function RootPoints() {
                         fontWeight: "bold",
                     },
                     headerTitle: (props) => (
-                        <Header title="PONTOS" name={displayName} />
+                        <Header title="PONTOS" name={() => getName()} />
                     ),
                 }}
             />

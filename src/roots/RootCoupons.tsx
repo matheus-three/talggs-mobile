@@ -11,7 +11,11 @@ const Stack = createStackNavigator();
 function RootCoupons() {
     var user = firebase.auth().currentUser;
 
-    const { displayName } = user
+    const getName = () => {
+        if (user.displayName != null) return user.displayName;
+
+        return "";
+    };
 
     return (
         <Stack.Navigator>
@@ -29,7 +33,7 @@ function RootCoupons() {
                         fontWeight: "bold",
                     },
                     headerTitle: (props) => (
-                        <Header title="CUPONS" name={displayName} />
+                        <Header title="CUPONS" name={getName()} />
                     ),
                 }}
             />

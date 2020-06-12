@@ -12,7 +12,11 @@ const Stack = createStackNavigator();
 function RootPefil() {
     var user = firebase.auth().currentUser;
 
-    const { displayName } = user;
+    const getName = () => {
+        if (user.displayName != null) return user.displayName;
+
+        return "";
+    };
 
     return (
         <Stack.Navigator>
@@ -29,7 +33,7 @@ function RootPefil() {
                         fontWeight: "bold",
                     },
                     headerTitle: (props) => (
-                        <Header title="PERFIL" name={displayName} />
+                        <Header title="PERFIL" name={getName()} />
                     ),
                 }}
             />
@@ -51,7 +55,7 @@ function RootPefil() {
                         top: 65,
                     },
                     headerTitle: (props) => (
-                        <HeaderLeft title="EDITAR" name={displayName} />
+                        <HeaderLeft title="EDITAR" name={getName()} />
                     ),
                 }}
             />

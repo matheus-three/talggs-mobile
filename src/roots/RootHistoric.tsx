@@ -12,10 +12,12 @@ const Stack = createStackNavigator();
 function RootHistoric() {
     var user = firebase.auth().currentUser;
 
-    const { displayName } = user;
+    console.log('user', user)
+    const getName = () => {
+        if (user.displayName != null) return user.displayName;
 
-    var valor = displayName.split(" ");
-    var nome = valor.shift();
+        return "";
+    };
 
     return (
         <Stack.Navigator>
@@ -33,7 +35,7 @@ function RootHistoric() {
                         fontWeight: "bold",
                     },
                     headerTitle: (props) => (
-                        <HeaderHistoric name={`Eai ${nome}, beleza?`} />
+                        <HeaderHistoric name={`Eai ${getName()}, beleza?`} />
                     ),
                 }}
             />
@@ -55,7 +57,7 @@ function RootHistoric() {
                         top: 65,
                     },
                     headerTitle: (props) => (
-                        <HeaderLeft title="DETALHES" name="Jake Peralta" />
+                        <HeaderLeft title="DETALHES" name={getName()} />
                     ),
                 }}
             />

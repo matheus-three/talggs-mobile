@@ -9,9 +9,6 @@ import Styles from "./styles";
 const chevronRight = <Icon name="chevron-right" size={25} color="#2D4F6C" />;
 
 const Perfil = ({ navigation }) => {
-    //dados que virão por uma API
-    const [name, setName] = useState("Jake Peralta");
-
     const { signOut } = React.useContext(AuthContext);
 
     const LogOut = () => {
