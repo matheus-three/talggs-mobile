@@ -219,10 +219,13 @@ const Register = () => {
         firebase
             .auth()
             .createUserWithEmailAndPassword(email, password)
-            .then(() => {
+            .then((result) => {
                 signUp();
                 setIsLoading(false);
                 CreateInfoUser();
+                result.user.updateProfile({
+                    displayName: name,
+                });
             })
             .catch((err) => {
                 setIsLoading(false);
@@ -255,9 +258,9 @@ const Register = () => {
 
         if (isValid) {
             CreateUser(email, password);
-        } else {
-            Alert.alert("Preencha todos os campos corretamente");
-        }
+        }   
+
+        return
     };
 
     const getIsValid = () => {

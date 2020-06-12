@@ -5,8 +5,14 @@ import Coupons from "../screens/coupons/Coupons";
 
 import Header from "../components/header/Header";
 
+import firebase from "firebase";
+
 const Stack = createStackNavigator();
 function RootCoupons() {
+    var user = firebase.auth().currentUser;
+
+    const { displayName } = user
+
     return (
         <Stack.Navigator>
             <Stack.Screen
@@ -23,7 +29,7 @@ function RootCoupons() {
                         fontWeight: "bold",
                     },
                     headerTitle: (props) => (
-                        <Header title="CUPONS" name="Jake Peralta" />
+                        <Header title="CUPONS" name={displayName} />
                     ),
                 }}
             />
