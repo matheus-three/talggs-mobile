@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import {
     Button,
     View,
@@ -8,17 +8,47 @@ import {
     ScrollView,
     TouchableOpacity,
     KeyboardAvoidingView,
+    Alert,
 } from "react-native";
+
 import { Dropdown } from "react-native-material-dropdown";
-import DatePicker from "react-native-datepicker";
+
 import { AuthContext } from "../../Context";
 
 import { TextInputMask } from "react-native-masked-text";
 
 import Style from "./styles";
 
+import firebase from "firebase";
+
+import { Loading } from "../../components/loading/index";
+
 const Register = () => {
-    const { signUp } = React.useContext(AuthContext);
+    const [isLoading, setIsLoading] = useState(false);
+    const [name, setName] = useState("");
+    const [validName, setValidName] = useState(true);
+    const genderData = [{ value: "Feminino" }, { value: "Masculino" }];
+    const [gender, setGender] = useState("");
+    const [validGender, setValidGender] = useState(true);
+    const [birthDate, setBirthDate] = useState("");
+    const [validBirthDate, setValidBirthDate] = useState(true);
+    const [Cpf, setCpf] = useState("");
+    const [validCpf, setValidCpf] = useState(true);
+    const [Cep, setCep] = useState("");
+    const [validCep, setValidCep] = useState(true);
+    const [Logradouro, setLogradouro] = useState("");
+    const [Cidade, setCidade] = useState("");
+    const [Bairro, setBairro] = useState("");
+    const [number, setNumber] = useState("");
+    const [Uf, setUf] = useState("");
+    const [validNumber, setValidNumber] = useState(true);
+    const [email, setEmail] = useState("");
+    const [validEmail, setValidEmail] = useState(true);
+    const [password, setPassword] = useState("");
+    const [validPassword, setValidPassword] = useState(true);
+    const [isValid, setIsValid] = useState(false);
+
+    const { signUp } = useContext(AuthContext);
 
     const uf = [
         { value: "AC" },
@@ -54,28 +84,6 @@ const Register = () => {
         { text: "Feminino", value: 1 },
         { text: "Masculino", value: 2 },
     ];
-
-    const [name, setName] = useState("");
-    const [validName, setValidName] = useState(true);
-    const genderData = [{ value: "Feminino" }, { value: "Masculino" }];
-    const [gender, setGender] = useState("");
-    const [validGender, setValidGender] = useState(true);
-    const [birthDate, setBirthDate] = useState("");
-    const [validBirthDate, setValidBirthDate] = useState(true);
-    const [Cpf, setCpf] = useState("");
-    const [validCpf, setValidCpf] = useState(true);
-    const [Cep, setCep] = useState("");
-    const [validCep, setValidCep] = useState(true);
-    const [Logradouro, setLogradouro] = useState("");
-    const [Cidade, setCidade] = useState("");
-    const [Bairro, setBairro] = useState("");
-    const [number, setNumber] = useState("");
-    const [Uf, setUf] = useState("");
-    const [validNumber, setValidNumber] = useState(true);
-    const [email, setEmail] = useState("");
-    const [validEmail, setValidEmail] = useState(true);
-    const [password, setPassword] = useState("");
-    const [validPassword, setValidPassword] = useState(true);
 
     const validateName = () => {
         const pattern = /^[a-zA-Z]{2,40}( [a-zA-Z]{2,40})+$/;
@@ -205,12 +213,66 @@ const Register = () => {
         return true;
     };
 
-    const [disabled, setDisabled] = useState(false);
+    const CreateUser = (email, password) => {
+        setIsLoading(true);
+
+        firebase
+            .auth()
+            .createUserWithEmailAndPassword(email, password)
+            .then(() => {
+                signUp();
+                setIsLoading(false);
+                CreateInfoUser();
+            })
+            .catch((err) => {
+                setIsLoading(false);
+                alert("Falha ao cadastrar");
+            });
+    };
+
+    const CreateInfoUser = () => {
+        const data = {
+            CEP: Cep,
+            CPF: Cpf,
+            birthDate: birthDate,
+            city: Cidade,
+            district: Bairro,
+            email: email,
+            name: name,
+            number: number,
+            password: password,
+            sex: gender,
+            street: Logradouro,
+            uf: Uf,
+        };
+
+        const dbh = firebase.firestore();
+        dbh.collection("user-mobile").add(data);
+    };
 
     const validSubmit = () => {
-        //if(disabled === true)
-        if (!validName === true) signUp();
-        else setValidName(false);
+        getIsValid();
+
+        if (isValid) {
+            CreateUser(email, password);
+        } else {
+            Alert.alert("Preencha todos os campos corretamente");
+        }
+    };
+
+    const getIsValid = () => {
+        if (
+            validName &&
+            validGender &&
+            validBirthDate &&
+            validCpf &&
+            validCep &&
+            validNumber &&
+            validEmail &&
+            validPassword
+        )
+            setIsValid(true);
+        else return;
     };
 
     return (
@@ -218,176 +280,183 @@ const Register = () => {
             behavior={Platform.OS == "ios" ? "padding" : "height"}
             style={Style.container}
         >
-            <ScrollView>
-                <View style={{ alignItems: "center" }}>
-                    <TextInput
-                        placeholder="Nome Completo"
-                        value={name}
-                        onChangeText={(value) => setName(value)}
-                        style={Style.input}
-                        onBlur={() => setValidName(validateName())}
-                    />
-                    {!validName ? (
-                        <Text style={Style.error}>
-                            Você deve inserir o seu Nome Completo
-                        </Text>
-                    ) : null}
+            <Loading loading={isLoading}>
+                <ScrollView>
+                    <View style={{ alignItems: "center" }}>
+                        <TextInput
+                            placeholder="Nome Completo"
+                            value={name}
+                            onChangeText={(value) => setName(value)}
+                            style={Style.input}
+                            onBlur={() => setValidName(validateName())}
+                        />
+                        {!validName ? (
+                            <Text style={Style.error}>
+                                Você deve inserir o seu Nome Completo
+                            </Text>
+                        ) : null}
 
-                    <TextInputMask
-                        placeholder="CPF"
-                        type={"cpf"}
-                        value={Cpf}
-                        onChangeText={(value) => setCpf(value)}
-                        style={Style.input}
-                        onBlur={() => setValidCpf(validateCpf())}
-                    />
-                    {!validCpf ? (
-                        <Text style={Style.error}>
-                            Você deve inserir um CPF válido
-                        </Text>
-                    ) : null}
-
-                    <Dropdown
-                        containerStyle={{
-                            width: "80%",
-                            height: 60,
-                            marginLeft: 10,
-                        }}
-                        style={{ color: "#F7F6EE", paddingLeft: 20 }}
-                        baseColor="#F7F6EE"
-                        itemTextStyle="#FFF"
-                        fontSize={14}
-                        dropdownPosition={-3}
-                        label="Sexo"
-                        onChangeText={(value) => setGender(value)}
-                        onBlur={() => setValidGender(validateGender())}
-                        data={genderData}
-                    />
-                    {!validGender ? (
-                        <Text style={Style.error}>Escolha um Sexo</Text>
-                    ) : null}
-
-                    <TextInputMask
-                        placeholder={"Data de Nascimento"}
-                        type={"datetime"}
-                        value={birthDate}
-                        options={{ format: "DD/MM/YYYY" }}
-                        style={Style.input}
-                        onChangeText={(value) => setBirthDate(value)}
-                        onBlur={() => setValidBirthDate(validateBirthDate())}
-                    />
-                    {!validBirthDate ? (
-                        <Text style={Style.error}>
-                            Você deve inserir uma Data de Nascimento válida
-                        </Text>
-                    ) : null}
-
-                    <Text style={Style.addressTitle}>Endereço</Text>
-
-                    <View style={Style.row}>
                         <TextInputMask
-                            placeholder={"CEP"}
-                            type={"zip-code"}
-                            value={Cep}
-                            onChangeText={(value) => setCep(value)}
-                            style={[Style.input, Style.halfLg]}
-                            onBlur={validateCep}
+                            placeholder="CPF"
+                            type={"cpf"}
+                            value={Cpf}
+                            onChangeText={(value) => setCpf(value)}
+                            style={Style.input}
+                            onBlur={() => setValidCpf(validateCpf())}
                         />
-
-                        {!validCep ? (
-                            <Text style={[Style.error, Style.errorCep]}>
-                                Você deve inserir um CEP válido
+                        {!validCpf ? (
+                            <Text style={Style.error}>
+                                Você deve inserir um CPF válido
                             </Text>
                         ) : null}
-
-                        <TextInput
-                            placeholder="Nº"
-                            keyboardType="numeric"
-                            value={number}
-                            onChangeText={(value) => setNumber(value)}
-                            style={[Style.input, Style.halfSm]}
-                            onBlur={() => setValidNumber(validateNumber())}
-                        />
-                        {!validNumber ? (
-                            <Text style={[Style.error, Style.errorNumber]}>
-                                Insira o Número
-                            </Text>
-                        ) : null}
-                    </View>
-
-                    <TextInput
-                        placeholder="Rua"
-                        style={Style.input}
-                        value={Logradouro}
-                    />
-                    <TextInput
-                        placeholder="Bairro"
-                        style={Style.input}
-                        value={Bairro}
-                    />
-
-                    <View style={Style.row}>
-                        <TextInput
-                            placeholder="Cidade"
-                            style={[Style.input, Style.halfLg]}
-                            value={Cidade}
-                        />
 
                         <Dropdown
                             containerStyle={{
-                                width: "20%",
-                                height: 80,
+                                width: "80%",
+                                height: 60,
                                 marginLeft: 10,
-                                marginTop: -15,
-                                top: 21,
                             }}
-                            style={{ color: "#F7F6EE" }}
+                            style={{ color: "#F7F6EE", paddingLeft: 20 }}
                             baseColor="#F7F6EE"
                             itemTextStyle="#FFF"
-                            dropdownPosition={4}
                             fontSize={14}
-                            label="UF"
-                            data={uf}
-                            value={Uf}
+                            dropdownPosition={-3}
+                            label="Sexo"
+                            onChangeText={(value) => setGender(value)}
+                            onBlur={() => setValidGender(validateGender())}
+                            data={genderData}
                         />
+                        {!validGender ? (
+                            <Text style={Style.error}>Escolha um Sexo</Text>
+                        ) : null}
+
+                        <TextInputMask
+                            placeholder={"Data de Nascimento"}
+                            type={"datetime"}
+                            value={birthDate}
+                            options={{ format: "DD/MM/YYYY" }}
+                            style={Style.input}
+                            onChangeText={(value) => setBirthDate(value)}
+                            onBlur={() =>
+                                setValidBirthDate(validateBirthDate())
+                            }
+                        />
+                        {!validBirthDate ? (
+                            <Text style={Style.error}>
+                                Você deve inserir uma Data de Nascimento válida
+                            </Text>
+                        ) : null}
+
+                        <Text style={Style.addressTitle}>Endereço</Text>
+
+                        <View style={Style.row}>
+                            <TextInputMask
+                                placeholder={"CEP"}
+                                type={"zip-code"}
+                                value={Cep}
+                                onChangeText={(value) => setCep(value)}
+                                style={[Style.input, Style.halfLg]}
+                                onBlur={validateCep}
+                            />
+
+                            {!validCep ? (
+                                <Text style={[Style.error, Style.errorCep]}>
+                                    Você deve inserir um CEP válido
+                                </Text>
+                            ) : null}
+
+                            <TextInput
+                                placeholder="Nº"
+                                keyboardType="numeric"
+                                value={number}
+                                onChangeText={(value) => setNumber(value)}
+                                style={[Style.input, Style.halfSm]}
+                                onBlur={() => setValidNumber(validateNumber())}
+                            />
+                            {!validNumber ? (
+                                <Text style={[Style.error, Style.errorNumber]}>
+                                    Insira o Número
+                                </Text>
+                            ) : null}
+                        </View>
+
+                        <TextInput
+                            placeholder="Rua"
+                            style={Style.input}
+                            value={Logradouro}
+                        />
+                        <TextInput
+                            placeholder="Bairro"
+                            style={Style.input}
+                            value={Bairro}
+                        />
+
+                        <View style={Style.row}>
+                            <TextInput
+                                placeholder="Cidade"
+                                style={[Style.input, Style.halfLg]}
+                                value={Cidade}
+                            />
+
+                            <Dropdown
+                                containerStyle={{
+                                    width: "20%",
+                                    height: 80,
+                                    marginLeft: 10,
+                                    marginTop: -15,
+                                    top: 21,
+                                }}
+                                style={{ color: "#F7F6EE" }}
+                                baseColor="#F7F6EE"
+                                itemTextStyle="#FFF"
+                                dropdownPosition={4}
+                                fontSize={14}
+                                label="UF"
+                                data={uf}
+                                value={Uf}
+                            />
+                        </View>
+
+                        <Text style={Style.addressTitle}>Login</Text>
+                        <TextInput
+                            placeholder="E-mail"
+                            value={email}
+                            onChangeText={(value) => setEmail(value)}
+                            style={Style.input}
+                            onBlur={() => setValidEmail(validateEmail())}
+                        />
+                        {!validEmail ? (
+                            <Text style={Style.error}>
+                                Você deve inserir um E-mail válido
+                            </Text>
+                        ) : null}
+
+                        <TextInput
+                            placeholder="Senha"
+                            secureTextEntry
+                            value={password}
+                            onChangeText={(value) => setPassword(value)}
+                            style={Style.input}
+                            onBlur={() => setValidPassword(validatePassword())}
+                        />
+                        {!validPassword ? (
+                            <Text style={Style.error}>
+                                Você deve inserir uma Senha com mais de 5
+                                digítos
+                            </Text>
+                        ) : null}
+
+                        <TouchableOpacity
+                            style={Style.button}
+                            onPress={() => {
+                                validSubmit();
+                            }}
+                        >
+                            <Text style={Style.button_text}>CADASTRAR-SE</Text>
+                        </TouchableOpacity>
                     </View>
-
-                    <Text style={Style.addressTitle}>Login</Text>
-                    <TextInput
-                        placeholder="E-mail"
-                        value={email}
-                        onChangeText={(value) => setEmail(value)}
-                        style={Style.input}
-                        onBlur={() => setValidEmail(validateEmail())}
-                    />
-                    {!validEmail ? (
-                        <Text style={Style.error}>
-                            Você deve inserir um E-mail válido
-                        </Text>
-                    ) : null}
-
-                    <TextInput
-                        placeholder="Senha"
-                        secureTextEntry
-                        value={password}
-                        onChangeText={(value) => setPassword(value)}
-                        style={Style.input}
-                        onBlur={() => setValidPassword(validatePassword())}
-                    />
-                    {!validPassword ? (
-                        <Text style={Style.error}>
-                            Você deve inserir uma Senha com mais de 5 digítos
-                        </Text>
-                    ) : null}
-
-                    <TouchableOpacity
-                        style={Style.button}
-                        onPress={() => validSubmit()}
-                    >
-                        <Text style={Style.button_text}>CADASTRAR-SE</Text>
-                    </TouchableOpacity>
-                </View>
-            </ScrollView>
+                </ScrollView>
+            </Loading>
         </KeyboardAvoidingView>
     );
 };
