@@ -3,6 +3,8 @@ import { View, Text, TouchableOpacity, Alert } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 import { AuthContext } from "../../Context";
 
+import firebase from "firebase";
+
 import Styles from "./styles";
 const chevronRight = <Icon name="chevron-right" size={25} color="#2D4F6C" />;
 
@@ -11,6 +13,18 @@ const Perfil = ({ navigation }) => {
     const [name, setName] = useState("Jake Peralta");
 
     const { signOut } = React.useContext(AuthContext);
+
+    const LogOut = () => {
+        firebase
+            .auth()
+            .signOut()
+            .then(() => {
+                console.log("sucess");
+            })
+            .catch((err) => {
+                console.error(err);
+            });
+    };
 
     const confirmAlert = () => {
         Alert.alert(
@@ -21,7 +35,13 @@ const Perfil = ({ navigation }) => {
                     text: "Não",
                     style: "cancel",
                 },
-                { text: "Sim", onPress: () => signOut() },
+                {
+                    text: "Sim",
+                    onPress: () => {
+                        LogOut();
+                        signOut();
+                    },
+                },
             ],
             { cancelable: false }
         );
