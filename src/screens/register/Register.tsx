@@ -23,6 +23,8 @@ import firebase from "firebase";
 
 import { Loading } from "../../components/loading/index";
 
+import AsyncStorage from "@react-native-community/async-storage";
+
 const Register = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [name, setName] = useState("");
@@ -250,20 +252,21 @@ const Register = () => {
         };
 
         const dbh = firebase.firestore();
-        dbh.collection("user-mobile").add(data);
+        dbh.collection("user-mobile")
+            .add(data)
+            .then(async (docRef) => {
+                try {
+                    console.log("Document written with ID: ", docRef.id);
+                    AsyncStorage.setItem("@user-app/docRefId", docRef.id);
+                } catch (err) {
+                    console.log(err);
+                }
+            });
     };
 
     const validSubmit = () => {
-        getIsValid();
+        // getIsValid();
 
-        if (isValid) {
-            CreateUser(email, password);
-        }
-
-        return;
-    };
-
-    const getIsValid = () => {
         if (
             validName &&
             validGender &&
@@ -273,9 +276,11 @@ const Register = () => {
             validNumber &&
             validEmail &&
             validPassword
-        )
-            setIsValid(true);
-        else return;
+        ) {
+            CreateUser(email, password);
+        }
+
+        return;
     };
 
     return (
