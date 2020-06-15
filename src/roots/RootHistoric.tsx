@@ -11,8 +11,6 @@ import firebase from "firebase";
 const Stack = createStackNavigator();
 function RootHistoric() {
     var user = firebase.auth().currentUser;
-
-    console.log('user', user)
     const getName = () => {
         if (user.displayName != null) return user.displayName;
 
