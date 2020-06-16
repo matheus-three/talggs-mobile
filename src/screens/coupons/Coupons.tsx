@@ -21,14 +21,14 @@ const Coupons = () => {
     const getCoupons = async () => {
         const dbh = firebase.firestore();
 
-        const reportRef = dbh.collection("coupons").doc("iBawftVuFzIKHvDxOb6O");
+        const reportRef = dbh.collection("cupons-gerados-mob").doc("J6SYs73OJnToht1w9jSM");
 
         reportRef.get().then((report) => {
             const data = report.data();
 
-            console.log("Data", data);
+            console.log("Data", data.gerados);
 
-            setCupons(data.coupons);
+            setCupons(data.gerados);
         });
     };
 
@@ -93,10 +93,10 @@ const Coupons = () => {
                             <View style={Styles.couponContainer}>
                                 <View style={Styles.titleContainer}>
                                     <Text style={Styles.title}>
-                                        {cupom.company}
+                                        {cupom.nameCompany}
                                     </Text>
                                     <Text style={Styles.data}>
-                                        {cupom.date}
+                                        {cupom.deadline}
                                     </Text>
                                 </View>
 
@@ -130,7 +130,7 @@ const Coupons = () => {
                                             Código:{" "}
                                         </Text>
                                         <Text style={Styles.itemsTitle}>
-                                            {cupom.couponCod}
+                                            {cupom.codeCompany}
                                         </Text>
                                     </View>
                                 </View>
@@ -138,7 +138,7 @@ const Coupons = () => {
                                 <TouchableOpacity
                                     style={Styles.button}
                                     onPress={() =>
-                                        copyToClipboard(cupom.couponCod)
+                                        copyToClipboard(cupom.codeCompany)
                                     }
                                 >
                                     <Text style={Styles.buttonText}>
