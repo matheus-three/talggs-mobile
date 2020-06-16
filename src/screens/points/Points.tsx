@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { ScrollView, Text, View } from "react-native";
+import React, { useState, useEffect } from "react";
+import { ScrollView, Text, View, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
@@ -10,57 +10,38 @@ import {
 } from "accordion-collapse-react-native";
 
 import Style from "./styles";
+import firebase from "firebase";
 
 export const Points = () => {
-    const [collapsed, setCollapsed] = useState(false);
-    const pontos = [
-        {
-            titulo: "EBANX S.A",
-            total: 80,
-            opcaoPontos: [
-                {
-                    qtdPontos: 100,
-                    totalDesconto: 20,
-                },
-                {
-                    qtdPontos: 175,
-                    totalDesconto: 25,
-                },
-                {
-                    qtdPontos: 250,
-                    totalDesconto: 30,
-                },
-            ],
-        },
-        {
-            titulo: "Americanas",
-            total: 30,
-            opcaoPontos: [
-                {
-                    qtdPontos: 100,
-                    totalDesconto: 20,
-                },
-                {
-                    qtdPontos: 350,
-                    totalDesconto: 30,
-                },
-            ],
-        },
+    const [pontos, setPontos] = useState([]);
 
-        {
-            titulo: "Submarino",
-            total: 200,
-            opcaoPontos: [
-                {
-                    qtdPontos: 1000,
-                    totalDesconto: 50,
-                },
-            ],
-        },
-    ];
+    const updateTotalPoints = () => {
+        
+    };
+
+    useEffect(() => {
+        async function getItems() {
+            const items = await getMarker();
+            setPontos(items);
+        }
+
+        getItems();
+    });
+
+    const getMarker = async () => {
+        const snapshot = await firebase
+            .firestore()
+            .collection("pontos-mob")
+            .get();
+        const items = snapshot.docs.map((doc) => doc.data());
+
+        return items;
+    };
 
     const chevronDown = <Icon name="chevron-down" size={25} color="#232F40" />;
-    const chevronRight = <Icon name="chevron-right" size={20} color="#2D4F6C" />;
+    const chevronRight = (
+        <Icon name="chevron-right" size={20} color="#2D4F6C" />
+    );
     const star = <Ionicons name="md-star-outline" size={25} color="#f2a950" />;
 
     return (
@@ -72,9 +53,9 @@ export const Points = () => {
                             <Text style={Style.chevronRight}>
                                 {chevronDown}
                             </Text>
-                            <Text style={Style.title}>{ponto.titulo}</Text>
+                            <Text style={Style.title}>{ponto.nameCompany}</Text>
                             <Text style={Style.points}>
-                                {ponto.total}
+                                {ponto.totalPoints}
                                 {star}
                             </Text>
                         </CollapseHeader>
@@ -85,14 +66,17 @@ export const Points = () => {
                                 <Text style={Style.label}>Desconto</Text>
                             </View>
 
-                            {ponto.opcaoPontos.map((item) => (
-                                <View style={Style.containerItems}>
+                            {ponto.pointsOption.map((item) => (
+                                <TouchableOpacity
+                                    style={Style.containerItems}
+                                    onPress={() => {}}
+                                >
                                     <View style={Style.containerLine}>
                                         <Text style={Style.items}>
-                                            {item.qtdPontos}
+                                            {item.amountPoints}
                                         </Text>
                                         <Text style={Style.items}>
-                                            {item.totalDesconto}%
+                                            {item.totalDiscount}%
                                         </Text>
                                     </View>
 
@@ -104,7 +88,7 @@ export const Points = () => {
                                         </Text>
                                         <Text>{chevronRight}</Text>
                                     </View>
-                                </View>
+                                </TouchableOpacity>
                             ))}
                         </CollapseBody>
                     </Collapse>
