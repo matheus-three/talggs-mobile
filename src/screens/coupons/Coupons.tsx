@@ -5,7 +5,7 @@ import {
     TouchableOpacity,
     Clipboard,
     ScrollView,
-    Alert
+    Alert,
 } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
@@ -19,69 +19,27 @@ const Coupons = () => {
     const [cupons, setCupons] = useState([]);
 
     const getCoupons = async () => {
-        const dbh = firebase.firestore();
+        const snapshot = await firebase
+            .firestore()
+            .collection("cupons-gerados-mob")
+            .get();
+        const items = snapshot.docs.map((doc) => doc.data());
 
-        const reportRef = dbh.collection("cupons-gerados-mob").doc("J6SYs73OJnToht1w9jSM");
-
-        reportRef.get().then((report) => {
-            const data = report.data();
-
-            console.log("Data", data.gerados);
-
-            setCupons(data.gerados);
-        });
+        return items;
     };
 
     useEffect(() => {
-        getCoupons();
-    }, []);
+        async function getItems() {
+            const items = await getCoupons();
+            setCupons(items);
+        }
 
-    // const cupons = [
-    //     {
-    //         empresa: "EBANX S.A",
-    //         data: "22 Abr 2020",
-    //         pontos: 50,
-    //         desconto: 20,
-    //         codigo: "A3G7H8D9S00",
-    //         id: "1",
-    //     },
-    //     {
-    //         empresa: "Submarino",
-    //         data: "21 Abr 2020",
-    //         pontos: 100,
-    //         desconto: 10,
-    //         codigo: "IJSA332W",
-    //         id: "2",
-    //     },
-    //     {
-    //         empresa: "Vovó Gourmet",
-    //         data: "30 Mar 2020",
-    //         pontos: 10,
-    //         desconto: 3,
-    //         codigo: "IJSA332W",
-    //         id: "3",
-    //     },
-    //     {
-    //         empresa: "Luiz.com",
-    //         data: "29 Fev 2020",
-    //         pontos: 5000,
-    //         desconto: 50,
-    //         codigo: "PPDE122",
-    //         id: "4",
-    //     },
-    //     {
-    //         empresa: "Tutupom?",
-    //         data: "31 Mar 2020",
-    //         pontos: 200,
-    //         desconto: 10,
-    //         codigo: "C0MUN15M0",
-    //         id: "5",
-    //     },
-    // ];
+        getItems();
+    });
 
     const copyToClipboard = (props) => {
         Clipboard.setString(props);
-        Alert.alert('Código copiado!')
+        Alert.alert("Código copiado!");
     };
 
     return (
