@@ -54,7 +54,7 @@ export const Accounts = ({ route, navigation }) => {
             pontos: 5,
             parcelas: 1,
             codigo: "658836481416525064204870947507962756494645398805",
-            status: 1,
+            status: 0,
             id: "2",
             produtos: [
                 {
@@ -62,26 +62,6 @@ export const Accounts = ({ route, navigation }) => {
                     qtde: 1,
                     vlUnit: "399,0",
                     vlTotal: "399,0",
-                },
-            ],
-        },
-        
-        {
-            empresa: "São João",
-            dataEmissao: "18 jun 2020",
-            dataVencimento: "30 jun 2020",
-            valor: "199.9",
-            pontos: 5,
-            parcelas: 1,
-            codigo: "658836481416525064204870947507962756494645398805",
-            status: 0,
-            id: "4",
-            produtos: [
-                {
-                    descricao: "Recarga de cartão",
-                    qtde: 1,
-                    vlUnit: "199.9",
-                    vlTotal: "199.9",
                 },
             ],
         },
@@ -94,7 +74,7 @@ export const Accounts = ({ route, navigation }) => {
             parcelas: 1,
             codigo: "658836481416525064204870947507962756494645398805",
             status: 2,
-            id: "8",
+            id: "5",
             produtos: [
                 {
                     descricao: "Copo Retrátil",
@@ -111,7 +91,7 @@ export const Accounts = ({ route, navigation }) => {
             ],
         },
         {
-            empresa: "Mercado Livre",
+            empresa: "Extra",
             dataEmissao: "17 jun 2020",
             dataVencimento: "30 jun 2020",
             valor: "189.9",
@@ -119,7 +99,7 @@ export const Accounts = ({ route, navigation }) => {
             parcelas: 1,
             codigo: "658836481416525064204870947507962756494645398805",
             status: 0,
-            id: "9",
+            id: "6",
             produtos: [
                 {
                     descricao: "Cobertor da Frozen",
@@ -138,7 +118,7 @@ export const Accounts = ({ route, navigation }) => {
             parcelas: 1,
             codigo: "658836481416525064204870947507962756494645398805",
             status: 0,
-            id: "10",
+            id: "7",
             produtos: [
                 {
                     descricao: "Box Game of Thrones",
@@ -149,15 +129,15 @@ export const Accounts = ({ route, navigation }) => {
             ],
         },
         {
-            empresa: "Centauro",
+            empresa: "Submarino",
             dataEmissao: "15 jun 2020",
             dataVencimento: "29 jun 2020",
-            valor: '588,9',
-            pontos: 5,
-            parcelas: 1,
+            valor: "588,9",
+            pontos: 25,
+            parcelas: 2,
             codigo: "658836481416525064204870947507962756494645398805",
-            status: 0,
-            id: "11",
+            status: 1,
+            id: "8",
             produtos: [
                 {
                     descricao: "Bola de basquete",
@@ -184,11 +164,11 @@ export const Accounts = ({ route, navigation }) => {
             dataEmissao: "18 jun 2020",
             dataVencimento: "20 jun 2020",
             valor: "289,8",
-            pontos: 5,
+            pontos: 25,
             parcelas: 1,
             codigo: "658836481416525064204870947507962756494645398805",
             status: 1,
-            id: "12",
+            id: "9",
             produtos: [
                 {
                     descricao: "Box Harry Potter",
@@ -205,15 +185,15 @@ export const Accounts = ({ route, navigation }) => {
             ],
         },
         {
-            empresa: "Netshoes",
+            empresa: "Renner",
             dataEmissao: "14 jun 2020",
             dataVencimento: "16 jun 2020",
             valor: "399,8",
-            pontos: 5,
+            pontos: 25,
             parcelas: 1,
             codigo: "658836481416525064204870947507962756494645398805",
             status: 2,
-            id: "13",
+            id: "10",
             produtos: [
                 {
                     descricao: "Converse Branco",
@@ -230,15 +210,15 @@ export const Accounts = ({ route, navigation }) => {
             ],
         },
         {
-            empresa: "Disney",
+            empresa: "Submarino",
             dataEmissao: "07 jun 2020",
             dataVencimento: "15 jun 2020",
             valor: "185,9",
-            pontos: 5,
+            pontos: 25,
             parcelas: 1,
             codigo: "658836481416525064204870947507962756494645398805",
             status: 1,
-            id: "14",
+            id: "11",
             produtos: [
                 {
                     descricao: "Vestido da frozen",
@@ -255,15 +235,15 @@ export const Accounts = ({ route, navigation }) => {
             ],
         },
         {
-            empresa: "Amazon",
+            empresa: "Americanas",
             dataEmissao: "07 jun 2020",
             dataVencimento: "09 jun 2020",
             valor: "229,9",
-            pontos: 5,
+            pontos: 15,
             parcelas: 1,
             codigo: "658836481416525064204870947507962756494645398805",
             status: 1,
-            id: "15",
+            id: "12",
             produtos: [
                 {
                     descricao: "Kindle",
@@ -274,33 +254,14 @@ export const Accounts = ({ route, navigation }) => {
             ],
         },
         {
-            empresa: "CVC",
-            dataEmissao: "07 jun 2020",
-            dataVencimento: "12 jun 2020",
-            valor: "22000,0",
-            pontos: 5,
-            parcelas: 1,
-            codigo: "658836481416525064204870947507962756494645398805",
-            status: 2,
-            id: "16",
-            produtos: [
-                {
-                    descricao: "Pacote NY",
-                    qtde: 2,
-                    vlUnit: "11000,0",
-                    vlTotal: "22000,00",
-                },
-            ],
-        },
-        {
-            empresa: "Pernambucanas",
+            empresa: "Submarino",
             dataEmissao: "01 jun 2020",
             dataVencimento: "05 jun 2020",
-            valor: '279,9',
+            valor: "279,9",
             pontos: 5,
             parcelas: 1,
             codigo: "658836481416525064204870947507962756494645398805",
-            id: "17",
+            id: "14",
             status: 1,
             produtos: [
                 {
@@ -318,7 +279,7 @@ export const Accounts = ({ route, navigation }) => {
             ],
         },
         {
-            empresa: "Riachuelo",
+            empresa: "Renner",
             dataEmissao: "28 mai 2020",
             dataVencimento: "31 mai 2020",
             valor: "159,8",
@@ -326,7 +287,7 @@ export const Accounts = ({ route, navigation }) => {
             parcelas: 1,
             codigo: "658836481416525064204870947507962756494645398805",
             status: 1,
-            id: "18",
+            id: "15",
             produtos: [
                 {
                     descricao: "Calça jeans 48",
@@ -337,15 +298,15 @@ export const Accounts = ({ route, navigation }) => {
             ],
         },
         {
-            empresa: "C&A",
+            empresa: "Americanas",
             dataEmissao: "14 mai 2020",
             dataVencimento: "21 mai 2020",
             valor: "1200,0",
-            pontos: 5,
+            pontos: 55,
             parcelas: 1,
             codigo: "658836481416525064204870947507962756494645398805",
             status: 1,
-            id: "19",
+            id: "16",
             produtos: [
                 {
                     descricao: "Moto G8",
@@ -356,34 +317,15 @@ export const Accounts = ({ route, navigation }) => {
             ],
         },
         {
-            empresa: "Leroy Merlin",
-            dataEmissao: "21 mai 2020",
-            dataVencimento: "29 mai 2020",
-            valor: "89,7",
-            pontos: 5,
-            parcelas: 1,
-            codigo: "658836481416525064204870947507962756494645398805",
-            status: 2,
-            id: "20",
-            produtos: [
-                {
-                    descricao: "Vaso G",
-                    qtde: 3,
-                    vlUnit: "29,9",
-                    vlTotal: "89,7",
-                },
-            ],
-        },
-        {
-            empresa: "SHEIN",
+            empresa: "Renner",
             dataEmissao: "21 mai 2020",
             dataVencimento: "27 mai 2020",
             valor: "449,9",
-            pontos: 5,
+            pontos: 25,
             parcelas: 1,
             codigo: "658836481416525064204870947507962756494645398805",
             status: 2,
-            id: "21",
+            id: "18",
             produtos: [
                 {
                     descricao: "Calça xadrez",
@@ -412,52 +354,15 @@ export const Accounts = ({ route, navigation }) => {
             ],
         },
         {
-            empresa: "Aliexpress",
-            dataEmissao: "15 mai 2020",
-            dataVencimento: "20 mai 2020",
-            valor: "143,5",
-            pontos: 5,
-            parcelas: 1,
-            codigo: "658836481416525064204870947507962756494645398805",
-            id: "22",
-            status: 2,
-            produtos: [
-                {
-                    descricao: "Lip balm",
-                    qtde: 3,
-                    vlUnit: "1,9",
-                    vlTotal: "5,7",
-                },
-                {
-                    descricao: "Máscara gelada",
-                    qtde: 1,
-                    vlUnit: "89,8",
-                    vlTotal: "89,8",
-                },
-                {
-                    descricao: "Paleta de sombras",
-                    qtde: 1,
-                    vlUnit: "38,0",
-                    vlTotal: "38,0",
-                },
-                {
-                    descricao: "Máscara coreana",
-                    qtde: 1,
-                    vlUnit: "10,0",
-                    vlTotal: "10,0",
-                },
-            ],
-        },
-        {
             empresa: "Submarino",
             dataEmissao: "05 mai 2020",
             dataVencimento: "12 mai 2020",
             valor: "305,7",
-            pontos: 5,
+            pontos: 15,
             parcelas: 1,
             codigo: "658836481416525064204870947507962756494645398805",
             status: 1,
-            id: "23",
+            id: "20",
             produtos: [
                 {
                     descricao: "Jogo de xícaras",
@@ -480,15 +385,15 @@ export const Accounts = ({ route, navigation }) => {
             ],
         },
         {
-            empresa: "Zona Criativa",
+            empresa: "Americanas",
             dataEmissao: "28 abr 2020",
             dataVencimento: "30 abr 2020",
             valor: "269.0",
-            pontos: 5,
+            pontos: 25,
             parcelas: 1,
             codigo: "658836481416525064204870947507962756494645398805",
             status: 1,
-            id: "24",
+            id: "21",
             produtos: [
                 {
                     descricao: "Pantufa Scooby-Doo",
@@ -508,12 +413,12 @@ export const Accounts = ({ route, navigation }) => {
             empresa: "Submarino",
             dataEmissao: "01 abr 2020",
             dataVencimento: "07 abr 2020",
-            valor: '199,9',
-            pontos: 5,
+            valor: "199,9",
+            pontos: 15,
             parcelas: 1,
             codigo: "658836481416525064204870947507962756494645398805",
             status: 1,
-            id: "25",
+            id: "22",
             produtos: [
                 {
                     descricao: "Ukulele Shelby",
@@ -532,7 +437,7 @@ export const Accounts = ({ route, navigation }) => {
             parcelas: 1,
             codigo: "658836481416525064204870947507962756494645398805",
             status: 2,
-            id: "26",
+            id: "23",
             produtos: [
                 {
                     descricao: "Box: Para todos os garotos que ja amei",
@@ -543,93 +448,25 @@ export const Accounts = ({ route, navigation }) => {
             ],
         },
         {
-            empresa: "Natura",
-            dataEmissao: "12 mar 2020",
-            dataVencimento: "15 mar 2020",
-            valor: "190.0",
+            empresa: "Extra",
+            dataEmissao: "25 mar 2020",
+            dataVencimento: "25 mar 2020",
+            valor: "39,0",
             pontos: 5,
             parcelas: 1,
             codigo: "658836481416525064204870947507962756494645398805",
             status: 2,
-            id: "27",
+            id: "2",
             produtos: [
                 {
-                    descricao: "Coffee Seduction",
-                    qtde: 2,
-                    vlUnit: "80",
-                    vlTotal: "160",
-                },
-            ],
-        },
-        {
-            empresa: "Tutupom?",
-            dataEmissao: "28 fev 2020",
-            dataVencimento: "20 mar 2020",
-            valor: '6.0',
-            pontos: 5,
-            parcelas: 1,
-            codigo: "658836481416525064204870947507962756494645398805",
-            status: 1,
-            id: "3",
-            produtos: [
-                {
-                    descricao: "Cactos",
+                    descricao: "Livro Dona Benta",
                     qtde: 1,
-                    vlUnit: '2,0',
-                    vlTotal: '2,0',
+                    vlUnit: "39,0",
+                    vlTotal: "39,0",
                 },
-                {
-                    descricao: "Suculenta",
-                    qtde: 1,
-                    vlUnit: '2,0',
-                    vlTotal: '2,0',
-                },
-                {
-                    descricao: "Mudas de hortelã",
-                    qtde: 1,
-                    vlUnit: '2,0',
-                    vlTotal: '2,0',
-                }
             ],
         },
     ];
-
-    // useEffect(() => {
-    //     getEmpresas();
-    // });
-
-    // const getEmpresas = () => {
-    //     const dbh = firebase.firestore();
-
-    //     const reportRef = dbh.collection("user-web");
-
-    //     reportRef
-    //         .get()
-    //         .then((resp) => {
-    //             resp.forEach((data) => {
-    //                 getContas(data.id);
-    //             });
-    //         })
-    //         .catch((err) => {
-    //             console.log(err);
-    //         });
-    // };
-
-    // const getContas = (data) => {
-    //     const dbh = firebase.firestore();
-
-    //     const reportRef = dbh;
-
-    //     reportRef
-    //         .collection("user-web")
-    //         .doc(data)
-    //         .collection("billet-web")
-    //         .onSnapshot((doc) => {
-    //             doc.forEach((accounts) => {
-    //                 console.log("ACCOUNTS", accounts.data());
-    //             });
-    //         });
-    // };
 
     const accountIconPending = (
         <Icon name="shopping-bag" size={20} color="#2D9AA6" />
