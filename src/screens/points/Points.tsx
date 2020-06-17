@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ScrollView, Text, View, TouchableOpacity } from "react-native";
+import { ScrollView, Text, View, TouchableOpacity, Alert } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
@@ -15,8 +15,46 @@ import firebase from "firebase";
 export const Points = () => {
     const [pontos, setPontos] = useState([]);
 
-    const updateTotalPoints = () => {
-        
+    const total = [{ total: 25 }, { total: 125 }, { total: 75 }, { total: 95 }];
+
+    const newCoupon = (data) => {
+        const dbh = firebase.firestore();
+        dbh.collection("cupons-gerados-mob")
+            .add(data)
+            .then(() => {
+                Alert.alert("Cupom gerado");
+            })
+            .catch(() => {
+                Alert.alert("Não foi possível gerar o cupom");
+            });
+    };
+
+    const newTotalPoints = (
+        descontado,
+        totalponto,
+        nome,
+        cod,
+        vencimento,
+        key
+    ) => {
+        if (descontado > total[key].total)
+            return Alert.alert("Pontos insuficientes");
+        else if (total[key].total - descontado < 0)
+            return Alert.alert("Pontos insuficientes");
+
+        const novo = total[key].total - descontado;
+
+        total[key].total = novo;
+
+        const data = {
+            codeCompany: cod,
+            discount: descontado,
+            nameCompany: nome,
+            points: totalponto,
+            deadline: vencimento,
+        };
+
+        newCoupon(data);
     };
 
     useEffect(() => {
@@ -47,15 +85,16 @@ export const Points = () => {
     return (
         <ScrollView style={Style.scrollContainer}>
             <View style={Style.container}>
-                {pontos.map((ponto) => (
+                {pontos.map((ponto, key) => (
                     <Collapse style={Style.couponContainer}>
                         <CollapseHeader style={Style.header}>
+                            <Text> {total[key].total} </Text>
                             <Text style={Style.chevronRight}>
                                 {chevronDown}
                             </Text>
                             <Text style={Style.title}>{ponto.nameCompany}</Text>
                             <Text style={Style.points}>
-                                {ponto.totalPoints}
+                                {total[key].total}
                                 {star}
                             </Text>
                         </CollapseHeader>
@@ -68,8 +107,18 @@ export const Points = () => {
 
                             {ponto.pointsOption.map((item) => (
                                 <TouchableOpacity
+                                    key={ponto.nameCompany}
                                     style={Style.containerItems}
-                                    onPress={() => {}}
+                                    onPress={() => {
+                                        newTotalPoints(
+                                            item.amountPoints,
+                                            item.totalDiscount,
+                                            ponto.nameCompany,
+                                            item.codDiscount,
+                                            ponto.date,
+                                            key
+                                        );
+                                    }}
                                 >
                                     <View style={Style.containerLine}>
                                         <Text style={Style.items}>
