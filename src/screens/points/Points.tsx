@@ -14,8 +14,12 @@ import firebase from "firebase";
 
 export const Points = () => {
     const [pontos, setPontos] = useState([]);
-
-    const total = [{ total: 25 }, { total: 5 }, { total: 75 }, { total: 95 }];
+    const [total, setTotal] = useState([
+        { valor: 25 },
+        { valor: 5 },
+        { valor: 75 },
+        { valor: 95 },
+    ]);
 
     const newCoupon = (data) => {
         const dbh = firebase.firestore();
@@ -37,16 +41,16 @@ export const Points = () => {
         vencimento,
         key
     ) => {
-        if (descontado > total[key].total)
+        if (descontado > total[key].valor)
             return Alert.alert("Pontos insuficientes");
-        else if (total[key].total - descontado < 0)
+        else if (total[key].valor - descontado < 0)
             return Alert.alert("Pontos insuficientes");
 
-        const novo = total[key].total - descontado;
+        const newTotal = total;
 
-        total[key].total = novo;
+        newTotal[key].valor = total[key].valor - descontado;
 
-       alert(total[key].total = novo);
+        setTotal(newTotal);
 
         const data = {
             codeCompany: cod,
@@ -95,7 +99,7 @@ export const Points = () => {
                             </Text>
                             <Text style={Style.title}>{ponto.nameCompany}</Text>
                             <Text style={Style.points}>
-                                {total[key].total}
+                                {total[key].valor}
                                 {star}
                             </Text>
                         </CollapseHeader>

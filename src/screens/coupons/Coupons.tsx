@@ -31,22 +31,27 @@ const Coupons = () => {
     useEffect(() => {
         async function getItems() {
             const items = await getCoupons();
-            setCupons(items);
+            if(!!!cupons.length) setCupons(items);
         }
 
         getItems();
     });
 
-    const copyToClipboard = (props) => {
-        Clipboard.setString(props);
+    const copyToClipboard = (cod, index) => {
+        Clipboard.setString(cod);
+
         Alert.alert("Código copiado!");
+
+        const newCupons = cupons.filter((cupom, i) => index !== i );
+
+        setCupons(newCupons);
     };
 
     return (
         <ScrollView style={{ backgroundColor: "#232F40" }}>
             <View style={Styles.container}>
                 <>
-                    {cupons.map((cupom) => (
+                    {cupons.map((cupom, index) => (
                         <>
                             <View style={Styles.couponContainer}>
                                 <View style={Styles.titleContainer}>
@@ -96,7 +101,7 @@ const Coupons = () => {
                                 <TouchableOpacity
                                     style={Styles.button}
                                     onPress={() =>
-                                        copyToClipboard(cupom.codeCompany)
+                                        copyToClipboard(cupom.codeCompany, index)
                                     }
                                 >
                                     <Text style={Styles.buttonText}>
