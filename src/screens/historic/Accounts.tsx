@@ -479,8 +479,8 @@ export const Accounts = ({ route, navigation }) => {
     );
 
     return (
-        <ScrollView style={Styles.container}>
-            <>
+        <ScrollView>
+            <View style={Styles.container}>
                 {Boletos.map((boleto) => (
                     <TouchableOpacity
                         key={boleto.id}
@@ -548,7 +548,7 @@ export const Accounts = ({ route, navigation }) => {
                         ) : undefined}
                     </TouchableOpacity>
                 ))}
-            </>
+            </View>
         </ScrollView>
     );
 };

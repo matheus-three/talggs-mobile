@@ -15,7 +15,7 @@ import firebase from "firebase";
 export const Points = () => {
     const [pontos, setPontos] = useState([]);
 
-    const total = [{ total: 25 }, { total: 125 }, { total: 75 }, { total: 95 }];
+    const total = [{ total: 25 }, { total: 5 }, { total: 75 }, { total: 95 }];
 
     const newCoupon = (data) => {
         const dbh = firebase.firestore();
@@ -45,6 +45,8 @@ export const Points = () => {
         const novo = total[key].total - descontado;
 
         total[key].total = novo;
+
+       alert(total[key].total = novo);
 
         const data = {
             codeCompany: cod,
@@ -88,7 +90,6 @@ export const Points = () => {
                 {pontos.map((ponto, key) => (
                     <Collapse style={Style.couponContainer}>
                         <CollapseHeader style={Style.header}>
-                            <Text> {total[key].total} </Text>
                             <Text style={Style.chevronRight}>
                                 {chevronDown}
                             </Text>
