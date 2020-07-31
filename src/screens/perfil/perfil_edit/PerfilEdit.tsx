@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
     View,
     TextInput,
@@ -7,31 +7,124 @@ import {
     ScrollView,
     TouchableOpacity,
     KeyboardAvoidingView,
+    Alert,
 } from "react-native";
+
 import { Dropdown } from "react-native-material-dropdown";
+
 import { TextInputMask } from "react-native-masked-text";
+
+import AsyncStorage from "@react-native-community/async-storage";
 
 import Styles from "./styles";
 
-const PerfilEdit = () => {
-    //dados que virão por uma API
-    const [name, setName] = useState("Jake Peralta");
-    const [validName, setValidName] = useState(true);
-    const [cpf, setCpf] = useState("999.999.999-99");
-    const [gender, setGender] = useState("Masculino");
-    const [birthDate, setBirthDate] = useState("17/05/1986");
-    const [Cep, setCep] = useState("18076552");
-    const [validCep, setValidCep] = useState(true);
-    const [number, setNumber] = useState("22");
-    const [validNumber, setValidNumber] = useState(true);
-    const [Logradouro, setLogradouro] = useState("Clã Ushiha");
-    const [Bairro, setBairro] = useState("Vila do Folha");
-    const [Cidade, setCidade] = useState("Cidade do Fogo");
-    const [Uf, setUf] = useState("");
-    const [email, setEmail] = useState("jaeperalta99@mgmail.com");
-    const [validEmail, setValidEmail] = useState(true);
+import firebase from "firebase";
 
+import RootPerfil from "../../../roots/RootPerfil";
+
+const PerfilEdit = ({ navigation }) => {
+    const [name, setName] = useState("");
+    const [validName, setValidName] = useState(true);
+    const [cpf, setCpf] = useState("");
+    const [gender, setGender] = useState("");
+    const [birthDate, setBirthDate] = useState("");
+    const [Cep, setCep] = useState("");
+    const [validCep, setValidCep] = useState(true);
+    const [number, setNumber] = useState("");
+    const [validNumber, setValidNumber] = useState(true);
+    const [Logradouro, setLogradouro] = useState("");
+    const [Bairro, setBairro] = useState("");
+    const [Cidade, setCidade] = useState("");
+    const [Uf, setUf] = useState("");
+    const [email, setEmail] = useState("");
+    const [validEmail, setValidEmail] = useState(true);
     const [date, setDate] = useState("");
+    const [id, setId] = useState("");
+
+    const getData = async () => {
+        try {
+            const value = await AsyncStorage.getItem("@user-app/docRefId");
+            if (value !== null) {
+                setId(value);
+                getCollection(value);
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+    const getCollection = async (value: string) => {
+        const dbh = firebase.firestore();
+
+        const reportRef = dbh.collection("user-mobile").doc(value);
+
+        reportRef
+            .get()
+            .then((resp) => {
+                const data = resp.data();
+
+                console.log("Data", data);
+
+                setDataCollection(data);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+
+    const setDataCollection = (data) => {
+        setName(data.name);
+        setCpf(data.CPF);
+        setGender(data.sex);
+        setBirthDate(data.birthDate);
+        setCep(data.CEP);
+        setNumber(data.number);
+        setLogradouro(data.street);
+        setBairro(data.district);
+        setCidade(data.city);
+        setUf(data.uf);
+        setEmail(data.email);
+    };
+
+    const updateDataCollection = () => {
+        const data = {
+            name: name,
+            CEP: Cep,
+            street: Logradouro,
+            district: Bairro,
+            number: number,
+            city: Cidade,
+            uf: Uf,
+            email: email,
+        };
+
+        const dbh = firebase.firestore();
+
+        dbh.collection("user-mobile")
+            .doc(id)
+            .update(data)
+            .then(() => {
+                try {
+                    Alert.alert("Atualizado com sucesso");
+                } catch (err) {
+                    Alert.alert("Não foi possível atualizar seus dados");
+                }
+            });
+
+        var user = firebase.auth().currentUser;
+
+        user.updateEmail(email)
+            .then(() => {
+                console.log("email atualizado");
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    };
+
+    useEffect(() => {
+        getData();
+    }, []);
 
     const validateName = () => {
         const pattern = /^[a-zA-Z]{2,40}( [a-zA-Z]{2,40})+$/;
@@ -209,16 +302,10 @@ const PerfilEdit = () => {
                     </View>
 
                     <Text style={Styles.labelTitleAddress}>RUA</Text>
-                    <TextInput
-                        style={Styles.input}
-                        value={Logradouro}
-                    />
+                    <TextInput style={Styles.input} value={Logradouro} />
 
                     <Text style={Styles.labelTitleAddress}>BAIRRO</Text>
-                    <TextInput
-                        style={Styles.input}
-                        value={Bairro}
-                    />
+                    <TextInput style={Styles.input} value={Bairro} />
 
                     <Text style={[Styles.labelTitleAddress, Styles.city]}>
                         CIDADE
@@ -265,11 +352,17 @@ const PerfilEdit = () => {
                     ) : null}
 
                     <View style={[Styles.row, Styles.buttonContainer]}>
-                        <TouchableOpacity style={Styles.button}>
+                        <TouchableOpacity
+                            style={Styles.button}
+                            onPress={() => navigation.navigate("Perfil")}
+                        >
                             <Text style={Styles.button_text}>CANCELAR</Text>
                         </TouchableOpacity>
 
-                        <TouchableOpacity style={Styles.button}>
+                        <TouchableOpacity
+                            style={Styles.button}
+                            onPress={() => updateDataCollection()}
+                        >
                             <Text style={Styles.button_text}>SALVAR</Text>
                         </TouchableOpacity>
                     </View>

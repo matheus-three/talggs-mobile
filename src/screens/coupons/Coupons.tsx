@@ -1,78 +1,65 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
     View,
     Text,
     TouchableOpacity,
     Clipboard,
-    Alert,
     ScrollView,
+    Alert,
 } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
 import Styles from "./styles";
 
-const Coupons = () => {
-    const cupons = [
-        {
-            empresa: "EBANX S.A",
-            data: "22 Abr 2020",
-            pontos: 50,
-            desconto: 20,
-            codigo: "A3G7H8D9S00",
-            id: "1",
-        },
-        {
-            empresa: "Submarino",
-            data: "21 Abr 2020",
-            pontos: 100,
-            desconto: 10,
-            codigo: "IJSA332W",
-            id: "2",
-        },
-        {
-            empresa: "Vovó Gourmet",
-            data: "30 Mar 2020",
-            pontos: 10,
-            desconto: 3,
-            codigo: "IJSA332W",
-            id: "3",
-        },
-        {
-            empresa: "Luiz.com",
-            data: "29 Fev 2020",
-            pontos: 5000,
-            desconto: 50,
-            codigo: "PPDE122",
-            id: "4",
-        },
-        {
-            empresa: "Tutupom?",
-            data: "31 Mar 2020",
-            pontos: 200,
-            desconto: 10,
-            codigo: "C0MUN15M0",
-            id: "5",
-        },
-    ];
+import firebase from "firebase";
 
-    const copyToClipboard = (props) => {
-        Clipboard.setString(props);
-        Alert.alert("Copiado");
+import "@firebase/firestore";
+
+const Coupons = () => {
+    const [cupons, setCupons] = useState([]);
+
+    const getCoupons = async () => {
+        const snapshot = await firebase
+            .firestore()
+            .collection("cupons-gerados-mob")
+            .get();
+        const items = snapshot.docs.map((doc) => doc.data());
+
+        return items;
+    };
+
+    useEffect(() => {
+        async function getItems() {
+            const items = await getCoupons();
+            if(!!!cupons.length) setCupons(items);
+        }
+
+        getItems();
+    });
+
+    const copyToClipboard = (cod, index) => {
+        Clipboard.setString(cod);
+
+        Alert.alert("Código copiado!");
+
+        const newCupons = cupons.filter((cupom, i) => index !== i );
+
+        setCupons(newCupons);
     };
 
     return (
-        <ScrollView>
+        <ScrollView style={{ backgroundColor: "#232F40" }}>
             <View style={Styles.container}>
                 <>
-                    {cupons.map((cupom) => (
+                    {cupons.map((cupom, index) => (
                         <>
                             <View style={Styles.couponContainer}>
                                 <View style={Styles.titleContainer}>
                                     <Text style={Styles.title}>
-                                        {cupom.empresa}
+                                        {cupom.nameCompany}
                                     </Text>
                                     <Text style={Styles.data}>
-                                        {cupom.data}
+                                        {cupom.deadline}
                                     </Text>
                                 </View>
 
@@ -82,7 +69,7 @@ const Coupons = () => {
                                             Pontos:{" "}
                                         </Text>
                                         <Text style={Styles.items}>
-                                            {cupom.pontos}
+                                            {cupom.points}
                                         </Text>
                                         <Ionicons
                                             style={Styles.star}
@@ -97,7 +84,7 @@ const Coupons = () => {
                                             Desconto:{" "}
                                         </Text>
                                         <Text style={Styles.items}>
-                                            {cupom.desconto}%
+                                            {cupom.discount}%
                                         </Text>
                                     </View>
 
@@ -106,7 +93,7 @@ const Coupons = () => {
                                             Código:{" "}
                                         </Text>
                                         <Text style={Styles.itemsTitle}>
-                                            {cupom.codigo}
+                                            {cupom.codeCompany}
                                         </Text>
                                     </View>
                                 </View>
@@ -114,7 +101,7 @@ const Coupons = () => {
                                 <TouchableOpacity
                                     style={Styles.button}
                                     onPress={() =>
-                                        copyToClipboard(cupom.codigo)
+                                        copyToClipboard(cupom.codeCompany, index)
                                     }
                                 >
                                     <Text style={Styles.buttonText}>

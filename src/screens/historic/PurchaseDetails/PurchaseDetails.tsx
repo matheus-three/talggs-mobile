@@ -13,41 +13,16 @@ import Styles from "./styles";
 
 import Ionicons from "react-native-vector-icons/Ionicons";
 
-const PurchaseDetails = () => {
-    const [empresa, setEmpresa] = useState("Ebanx S.A");
-    const [valorTotal, setValorTotal] = useState("R$123,00");
-    const [dataEmissao, setDataEmissao] = useState("24 fev 2020");
-    const [dataVencimento, setDataVencimento] = useState("20 mar 2020");
-    const [pontos, setPontos] = useState("20");
-    const [parcelas, setParcelas] = useState("2");
-    const [codigo, setCodigo] = useState("445566778899101011111212");
+const PurchaseDetails = (props) => {
+    const data = props.route.params.boleto;
 
-    const produtos = [
-        {
-            descricao: "Caneta Bic",
-            qtde: 3,
-            vlUnit: 1.99,
-            vlTotal: 5.97,
-        },
-        {
-            descricao: "Caderno do Naruto",
-            qtde: 1,
-            vlUnit: 20,
-            vlTotal: 20,
-        },
-        {
-            descricao: "Mochila da Barbie",
-            qtde: 1,
-            vlUnit: 100,
-            vlTotal: 100,
-        },
-        {
-            descricao: "Kunai",
-            qtde: 1,
-            vlUnit: 100,
-            vlTotal: 100,
-        },
-    ];
+    const [empresa, setEmpresa] = useState(data.empresa);
+    const [valorTotal, setValorTotal] = useState(data.valor);
+    const [dataEmissao, setDataEmissao] = useState(data.dataEmissao);
+    const [dataVencimento, setDataVencimento] = useState(data.dataVencimento);
+    const [pontos, setPontos] = useState(data.pontos);
+    const [parcelas, setParcelas] = useState(data.parcelas);
+    const [codigo, setCodigo] = useState(data.codigo);
 
     const copyToClipboard = () => {
         Clipboard.setString(codigo);
@@ -58,7 +33,7 @@ const PurchaseDetails = () => {
         <ScrollView style={Styles.container}>
             <View style={Styles.containerInfos}>
                 <Text style={Styles.companyName}>{empresa}</Text>
-                <Text style={Styles.totalPrice}>{valorTotal}</Text>
+                <Text style={Styles.totalPrice}>R${valorTotal}</Text>
             </View>
 
             <View style={Styles.containerTitle}>
@@ -109,7 +84,7 @@ const PurchaseDetails = () => {
                 </View>
                 <View style={Styles.containerItems}>
                     <>
-                        {produtos.map((produto) => (
+                        {data.produtos.map((produto) => (
                             <>
                                 <Text style={Styles.productItemsDesc}>
                                     {produto.descricao}

@@ -17,7 +17,8 @@ export const Doubts = () => {
             titulo: "Esqueci minha senha",
             descricao: [
                 {
-                    solucao: "Lascou-se kkkkkk",
+                    solucao:
+                        "Caso venha esquecer sua senha entre em contato pelo e-mail: suporte@talggs.com.br, solicite uma nova senha e informe seu e-mail de cadastro e CPF. Retornaremos em breve com uma nova senha.",
                 },
             ],
         },
@@ -25,7 +26,8 @@ export const Doubts = () => {
             titulo: "Eu tenho uma Empresa",
             descricao: [
                 {
-                    solucao: "Entre no site Tallgs: link",
+                    solucao:
+                        "Caso você queira cadastrar sua empresa em nossa plataforma, você deve acessar o link www.tallgs.com.br e fazer um pré-cadastro com sua empresa. Seu pré cadastro irá ser enviado à nós e entrará em análise, caso sua empresa seja aprovada para cadastro, a gente enviará um e-mail para você com a chave para cadastro.",
                 },
             ],
         },
@@ -33,7 +35,12 @@ export const Doubts = () => {
             titulo: "O que são os Pontos?",
             descricao: [
                 {
-                    solucao: "Te garante descontos",
+                    solucao: `A empresa que possuir um sistema de pontos, disponibilizará cupons de descontos para seus clientes, esses cupons estão dispostos na tela Pontos contendo a quantidade de pontos necessárias para gera-lo e o total de desconto que o cupom garante sobre a próxima compra. O cliente que possuir pontos suficientes para usufruir do cupom, poderá gerar-lo, e então, o mesmo será adicionado a tela Cupons do cliente, podendo ser usado a qualquer momento pelo cliente, uma vez, e dentro do prazo de validade do desconto.
+
+ - Como conseguir Pontos?
+
+ O cliente ganha pontos conforme seus pagamentos. Pagamentos em dia com a validade do boleto garantem 5 pontos ao cliente. Pagamentos adiantados garantem 1 ponto para cada dia adiantado que o cliente pagou antes do prazo, mais, 5 pontos.
+                    `,
                 },
             ],
         },
@@ -41,7 +48,8 @@ export const Doubts = () => {
             titulo: "Como envio minha dúvida aqui?",
             descricao: [
                 {
-                    solucao: "Entre no site Tallgs: link",
+                    solucao:
+                        "Você pode enviar suas dúvidas no nosso e-mail oficial: suporte@tallgs.com e responderemos o mais breve possível. Caso haja muitas dúvidas parecidas, a gente disponibilizará a dúvida nessa mesma tela para que todos possam verificar.",
                 },
             ],
         },
@@ -49,7 +57,13 @@ export const Doubts = () => {
             titulo: "Como uso meus Cupons?",
             descricao: [
                 {
-                    solucao: "Não usa, emmmn zuera",
+                    solucao: `Seus cupons podem ser usados na próxima compra de qualquer produto da empresa a qual o cupom é referente. Tanto para compras online como para compras em lojas físicas o cupom é válido. 
+
+ - Como usar em compra online o cupom?
+Você deve copiar o código do cupom que possui e adiciona-lo a compra que estiver fazendo na empresa referente ao cupom. Após validada a compra online o cupom não será mais válido.
+                    
+ - Como usar em compra em loja física?
+Você deve mostrar para o vendedor da empresa a qual o cupom é referente, o código de cupom de desconto que você possui. Após validada a compra o cupom não será mais válido.`,
                 },
             ],
         },

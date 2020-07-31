@@ -6,9 +6,18 @@ import PerfilEdit from "../screens/perfil/perfil_edit/PerfilEdit";
 
 import Header from "../components/header/Header";
 import HeaderLeft from "../components/header/HeaderLeft";
+import firebase from "firebase";
 
 const Stack = createStackNavigator();
 function RootPefil() {
+    var user = firebase.auth().currentUser;
+
+    const getName = () => {
+        if (user.displayName != null) return user.displayName;
+
+        return "";
+    };
+
     return (
         <Stack.Navigator>
             <Stack.Screen
@@ -24,7 +33,7 @@ function RootPefil() {
                         fontWeight: "bold",
                     },
                     headerTitle: (props) => (
-                        <Header title="PERFIL" name="Jake Peralta" />
+                        <Header title="PERFIL" name={getName()} />
                     ),
                 }}
             />
@@ -46,7 +55,7 @@ function RootPefil() {
                         top: 65,
                     },
                     headerTitle: (props) => (
-                        <HeaderLeft title="EDITAR" name="Jake Peralta" />
+                        <HeaderLeft title="EDITAR" name={getName()} />
                     ),
                 }}
             />

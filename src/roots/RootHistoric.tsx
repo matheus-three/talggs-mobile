@@ -6,8 +6,17 @@ import HeaderHistoric from "../components/header/HeaderHistoric";
 import PurchaseDetails from "../screens/historic/PurchaseDetails/PurchaseDetails";
 import HeaderLeft from "../components/header/HeaderLeft";
 
+import firebase from "firebase";
+
 const Stack = createStackNavigator();
 function RootHistoric() {
+    var user = firebase.auth().currentUser;
+    const getName = () => {
+        if (user.displayName != null) return user.displayName;
+
+        return "";
+    };
+
     return (
         <Stack.Navigator>
             <Stack.Screen
@@ -24,7 +33,7 @@ function RootHistoric() {
                         fontWeight: "bold",
                     },
                     headerTitle: (props) => (
-                        <HeaderHistoric name="Eai Jake Peralta, beleza?" />
+                        <HeaderHistoric name={`Eai ${getName()}, beleza?`} />
                     ),
                 }}
             />
@@ -46,7 +55,7 @@ function RootHistoric() {
                         top: 65,
                     },
                     headerTitle: (props) => (
-                        <HeaderLeft title="DETALHES" name="Jake Peralta" />
+                        <HeaderLeft title="DETALHES" name={getName()} />
                     ),
                 }}
             />

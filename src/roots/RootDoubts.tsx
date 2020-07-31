@@ -5,8 +5,19 @@ import Doubts from "../screens/doubts/Doubts";
 
 import Header from "../components/header/Header";
 
+import firebase from "firebase";
+
 const Stack = createStackNavigator();
 function RootDoubts() {
+    var user = firebase.auth().currentUser;
+
+    const getName = () => {
+        if (user.displayName != null) return user.displayName;
+
+        return "";
+    };
+
+
     return (
         <Stack.Navigator>
             <Stack.Screen
@@ -23,7 +34,7 @@ function RootDoubts() {
                         fontWeight: "bold",
                     },
                     headerTitle: (props) => (
-                        <Header title="DÚVIDAS" name="Jake Peralta" />
+                        <Header title="DÚVIDAS" name={getName()} />
                     ),
                 }}
             />
